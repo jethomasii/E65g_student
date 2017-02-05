@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SimulationViewController.swift
 //  Assignment1
 //
 //  Created by Van Simmons on 1/15/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SimulationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
