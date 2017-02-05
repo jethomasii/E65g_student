@@ -13,6 +13,7 @@
 		FBAD2E721E2BF8D4008207C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E701E2BF8D4008207C0 /* Main.storyboard */; };
 		FBAD2E741E2BF8D4008207C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E731E2BF8D4008207C0 /* Assets.xcassets */; };
 		FBAD2E771E2BF8D4008207C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2E751E2BF8D4008207C0 /* LaunchScreen.storyboard */; };
+		FBAD2EEE1E3E745A008207C0 /* Assignment1.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2EED1E3E745A008207C0 /* Assignment1.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FBAD2E731E2BF8D4008207C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBAD2E761E2BF8D4008207C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBAD2E781E2BF8D4008207C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBAD2EED1E3E745A008207C0 /* Assignment1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Assignment1.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		FBAD2E5E1E2BF8D4008207C0 = {
 			isa = PBXGroup;
 			children = (
+				FBAD2EED1E3E745A008207C0 /* Assignment1.rtf */,
 				FBAD2E691E2BF8D4008207C0 /* Assignment1 */,
 				FBAD2E681E2BF8D4008207C0 /* Products */,
 			);
@@ -130,6 +133,7 @@
 				FBAD2E771E2BF8D4008207C0 /* LaunchScreen.storyboard in Resources */,
 				FBAD2E741E2BF8D4008207C0 /* Assets.xcassets in Resources */,
 				FBAD2E721E2BF8D4008207C0 /* Main.storyboard in Resources */,
+				FBAD2EEE1E3E745A008207C0 /* Assignment1.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +310,7 @@
 				FBAD2E7D1E2BF8D4008207C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

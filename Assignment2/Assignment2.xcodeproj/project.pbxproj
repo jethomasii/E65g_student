@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB3581561E3E7E2B00638BB6 /* Assignment2.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB3581551E3E7E2B00638BB6 /* Assignment2.rtf */; };
 		FBAD2DCB1E2BDE55008207C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2DCA1E2BDE55008207C0 /* AppDelegate.swift */; };
 		FBAD2DCD1E2BDE55008207C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD2DCC1E2BDE55008207C0 /* ViewController.swift */; };
 		FBAD2DD01E2BDE55008207C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAD2DCE1E2BDE55008207C0 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB3581551E3E7E2B00638BB6 /* Assignment2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Assignment2.rtf; sourceTree = "<group>"; };
 		FBAD2DC71E2BDE55008207C0 /* Assignment2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAD2DCA1E2BDE55008207C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAD2DCC1E2BDE55008207C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 		FBAD2DBE1E2BDE55008207C0 = {
 			isa = PBXGroup;
 			children = (
+				FB3581551E3E7E2B00638BB6 /* Assignment2.rtf */,
 				FBAD2E7E1E2E56D1008207C0 /* Assignment2.playground */,
 				FBAD2DC91E2BDE55008207C0 /* Assignment2 */,
 				FBAD2DC81E2BDE55008207C0 /* Products */,
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3581561E3E7E2B00638BB6 /* Assignment2.rtf in Resources */,
 				FBAD2DD51E2BDE55008207C0 /* LaunchScreen.storyboard in Resources */,
 				FBAD2DD21E2BDE55008207C0 /* Assets.xcassets in Resources */,
 				FBAD2DD01E2BDE55008207C0 /* Main.storyboard in Resources */,
