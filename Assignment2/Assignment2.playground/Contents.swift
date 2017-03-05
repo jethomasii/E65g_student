@@ -236,6 +236,8 @@ struct Grid {
         cells = [[Cell]](repeatElement([Cell](repeatElement(Cell(), count: cols)), count: rows))
         map2(rows, cols) { row, col in
             // ** Your Problem 8 code goes here! **
+            cells[row][col].position = (row,col)
+            cells[row][col].state = cellInitializer (row, col)
         }
     }
 }
@@ -275,14 +277,14 @@ struct Grid {
  */
 // ** your problem 10.1 answer goes here.
 /*
- 
+ As the arugment label of 'cell' of is used when calling the function i.e. myGrid.neighbors(of: <someCellInmyGrid>)
  */
 /*:
  2. Explain in one sentence when you would use the word `cell` in relation to this function
  */
 // ** your problem 10.2 answer goes here.
 /*
- 
+As the agrument/parameter name cell would be used inside the function to refer to the passed Cell object with the label 'of'
  */
 // An extension of Grid to add a function for computing the positions
 // of the 8 neighboring cells of a given cell
@@ -292,7 +294,8 @@ extension Grid {
     func neighbors(of cell: Cell) -> [Position] {
         return Grid.offsets.map {
             // ** Your Problem 9 Code goes here! replace the following line **
-            return Position(row: $0, col: $1)
+            return Position(row: ($0 + cell.position.0 + rows) % rows,
+                            col: ($1 + cell.position.1 + cols) % cols)
         }
     }
 }
@@ -304,21 +307,21 @@ extension Grid {
  */
 // ** Your Problem 11.1 answer goes here **
 /*
- 
+Return a total based on some criteria using coordinates from 2 of passed Int values.
  */
 /*:
  2. what is the return type of reduce2?
  */
 // ** Your Problem 11.2 answer goes here **
 /*
- 
+ A single Int
  */
 /*:
  3. why is there no T parameter here as in map2 above?
  */
 // ** Your Problem 11.3 answer goes here **
 /*
- 
+ All data passed is either an Int or returns an Int, the fuction's effort is to combine that information for a single Int return value.
  */
 
 // A function which is useful for counting things in an array of arrays of things
@@ -344,7 +347,7 @@ extension Grid {
     var numLiving: Int {
         return reduce2(self.rows, self.cols) { total, row, col in
             // ** Replace the following line with your Problem 12 code
-            return 0
+            return total + (cells[row][col].state == .alive ? 1 : 0)
         }
     }
 }
@@ -376,15 +379,15 @@ extension Grid {
 // Code to initialize a 10x10 grid, set up every cell in the grid
 // and randomly turn each cell on or off.  Uncomment following 4 lines
 // and replace `.empty` with your one line of code
-//var grid = Grid(10, 10) { row, col in 
-//   // ** Your Problem 13 code goes here! **
-//   .empty
-//}
-//grid.numLiving
+var grid = Grid(10, 10) { row, col in
+   // ** Your Problem 13 code goes here! **
+    arc4random_uniform(3) == 2 ? .alive : .empty
+}
+grid.numLiving
 
 // ** Your Problem 13 comment goes here! **
 /*
- 
+ If there are 3 values (0-2) it will average 1/3 of response over a statistaclly lagre number of repititions, but 100 is not very large so there's a fair amount of variance.
  */
 /*:
  ## Problem 14:
@@ -410,13 +413,14 @@ extension Grid {
     subscript (row: Int, col: Int) -> Cell? {
         get {
             // ** Your Problem 14 `get` code goes here! replace the following line **
-            return nil
+            guard 0 < row && row < rows else { return nil }
+            return cells[row][col]
         }
         set {
             // ** Your Problem 14 `set` code goes here! replace the following line **
-            return
+            guard 0 < row && row < rows && newValue != nil else { return }
+            cells[row][col] = newValue!
         }
-    }
 }
 /*:
  The following 4 problems all refer to the extension to `Grid` immediately below
@@ -427,7 +431,7 @@ extension Grid {
  */
 // Problem 15.1 answer goes here
 /*
- 
+ An optional containing a Cell when not nil.
  */
 /*:
  2. what the type of `self[row,col]`?
