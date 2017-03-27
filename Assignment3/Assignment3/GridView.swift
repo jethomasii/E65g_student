@@ -9,7 +9,9 @@
 import UIKit
 
 @IBDesignable class GridView: UIView {
-    
+    /*  grid - Grid object used to store the grid
+        updated when size changes as per problem 2
+    */
     var grid = Grid(20,20)
     @IBInspectable var size = 20 {
         didSet { grid = Grid(size,size) }
@@ -23,17 +25,24 @@ import UIKit
     
     override func draw(_ rect: CGRect) {
         
-        /* colorDict, maps CellStates to colors used for Cell Drawing */
+        /*  colorDict - maps CellStates to colors used for Cell Drawing */
         let colorDict = [CellState.alive: livingColor,
                          CellState.empty: emptyColor,
                          CellState.born: bornColor,
                          CellState.died: diedColor]
-        
+        /*  cellSize - height/width of cells based on the size of
+            the view and the size var
+        */
         let cellSize = CGSize(
             width: rect.size.width / CGFloat(size),
             height: rect.size.height / CGFloat(size)
         )
         
+        /*  code for drawing the ovals in each cell
+            based on code given in XView from lecture
+            Updated to reflect size var instead of static
+            values
+        */
         let base = rect.origin
         (0 ..< size).forEach { i in
             (0 ..< size).forEach { j in
@@ -52,7 +61,7 @@ import UIKit
             }
         }
         
-        // path
+        //  code for drawing lines, also from XView
         (0 ..< size+1).forEach {
             drawLine(
                 start:  CGPoint(x: CGFloat($0)/CGFloat(size) * rect.size.width, y: 0.0),
@@ -64,7 +73,9 @@ import UIKit
             )
         }
     }
-    
+    /*  drawLine - used above, provides the actual
+        implementation of line drawing. Based on XView
+    */
     func drawLine(start:CGPoint, end:CGPoint) {
         let path = UIBezierPath()
         path.lineWidth = gridWidth
@@ -74,6 +85,7 @@ import UIKit
         path.stroke()
     }
     
+    //  Touch functions adapted from Lecture 7
     typealias Position = (row: Int, col: Int)
     var lastTouchedPosition: Position?
     
@@ -89,6 +101,9 @@ import UIKit
         lastTouchedPosition = nil
     }
     
+    /*  process - process UITouch input to update cells
+        i.e. toggle states by touch
+    */
     func process(touches: Set<UITouch>) -> Position? {
         guard touches.count == 1 else { return nil }
         let pos = convert(touch: touches.first!)
@@ -100,6 +115,9 @@ import UIKit
         return pos
     }
     
+    /*  convert - conterts UITouch to position to determine
+        which cells are updated in func process
+    */
     func convert(touch: UITouch) -> Position {
         let touchY = touch.location(in: self).y
         let gridHeight = frame.size.height
@@ -111,6 +129,9 @@ import UIKit
         return position
     }
 
+    /*  iterateGrid - advances the grid based on current
+        cells one iteration.
+    */
     func iterateGrid() {
         grid = grid.next()
         setNeedsDisplay()
