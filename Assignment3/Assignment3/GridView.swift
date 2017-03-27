@@ -22,14 +22,6 @@ import UIKit
     @IBInspectable var gridWidth = CGFloat(1.0)
     
     override func draw(_ rect: CGRect) {
-        print("Value of variables: \n")
-        print("\tlivingColor: \(livingColor)")
-        print("\temptyColor: \(emptyColor)")
-        print("\tbornColor: \(bornColor)")
-        print("\tdiedColor: \(diedColor)")
-        print("\tgridColor: \(gridColor)")
-        print("\tgridWidth: \(gridWidth)")
-        print("\tgrid.empty: \(grid.empty.count)")
         
         /* colorDict, maps CellStates to colors used for Cell Drawing */
         let colorDict = [CellState.alive: livingColor,
@@ -72,6 +64,7 @@ import UIKit
             )
         }
     }
+    
     func drawLine(start:CGPoint, end:CGPoint) {
         let path = UIBezierPath()
         path.lineWidth = gridWidth
@@ -80,4 +73,42 @@ import UIKit
         gridColor.setStroke()
         path.stroke()
     }
+    
+    typealias Position = (row: Int, col: Int)
+    var lastTouchedPosition: Position?
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchedPosition = process(touches: touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchedPosition = process(touches: touches)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastTouchedPosition = nil
+    }
+    
+    func process(touches: Set<UITouch>) -> Position? {
+        guard touches.count == 1 else { return nil }
+        let pos = convert(touch: touches.first!)
+        guard lastTouchedPosition?.row != pos.row
+            || lastTouchedPosition?.col != pos.col
+            else { return pos }
+        grid[(pos.row,pos.col)] = grid[(pos.row,pos.col)].toggle(value: grid[(pos.row,pos.col)])
+        setNeedsDisplay()
+        return pos
+    }
+    
+    func convert(touch: UITouch) -> Position {
+        let touchY = touch.location(in: self).y
+        let gridHeight = frame.size.height
+        let row = touchY / gridHeight * CGFloat(size)
+        let touchX = touch.location(in: self).x
+        let gridWidth = frame.size.width
+        let col = touchX / gridWidth * CGFloat(size)
+        let position = (row: Int(row), col: Int(col))
+        return position
+    }
+    
 }
