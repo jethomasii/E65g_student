@@ -110,5 +110,10 @@ import UIKit
         let position = (row: Int(row), col: Int(col))
         return position
     }
+
+    func iterateGrid() {
+        grid = grid.next()
+        setNeedsDisplay()
+    }
     
 }

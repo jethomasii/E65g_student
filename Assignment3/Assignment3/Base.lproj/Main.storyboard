@@ -52,17 +52,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzZ-fO-orT">
+                                <rect key="frame" x="37" y="151" width="32" height="30"/>
+                                <state key="normal" title="Step"/>
+                                <connections>
+                                    <action selector="stepButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8z6-fW-fZV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eCS-sm-5xd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" priority="750" id="L35-2g-wHu"/>
                             <constraint firstItem="eCS-sm-5xd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tw2-x9-eaf"/>
                             <constraint firstItem="eCS-sm-5xd" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="awA-ve-E6f"/>
+                            <constraint firstItem="eCS-sm-5xd" firstAttribute="top" secondItem="mzZ-fO-orT" secondAttribute="bottom" constant="2.5" id="jr3-8u-QW4"/>
+                            <constraint firstItem="eCS-sm-5xd" firstAttribute="leading" secondItem="mzZ-fO-orT" secondAttribute="leading" id="lag-Hy-ceK"/>
                             <constraint firstItem="eCS-sm-5xd" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="vZ0-s6-fgN"/>
                             <constraint firstItem="eCS-sm-5xd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="w6x-ov-Evg"/>
                             <constraint firstItem="eCS-sm-5xd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" priority="750" id="yeE-3h-Tuj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainGridView" destination="eCS-sm-5xd" id="sBs-Je-X5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
