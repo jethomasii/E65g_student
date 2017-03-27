@@ -21,6 +21,63 @@ import UIKit
     @IBInspectable var gridColor = UIColor.black
     @IBInspectable var gridWidth = CGFloat(1.0)
     
-    
-    
+    override func draw(_ rect: CGRect) {
+        print("Value of variables: \n")
+        print("\tlivingColor: \(livingColor)")
+        print("\temptyColor: \(emptyColor)")
+        print("\tbornColor: \(bornColor)")
+        print("\tdiedColor: \(diedColor)")
+        print("\tgridColor: \(gridColor)")
+        print("\tgridWidth: \(gridWidth)")
+        print("\tgrid.empty: \(grid.empty.count)")
+        
+        /* colorDict, maps CellStates to colors used for Cell Drawing */
+        let colorDict = [CellState.alive: livingColor,
+                         CellState.empty: emptyColor,
+                         CellState.born: bornColor,
+                         CellState.died: diedColor]
+        
+        let cellSize = CGSize(
+            width: rect.size.width / CGFloat(size),
+            height: rect.size.height / CGFloat(size)
+        )
+        
+        let base = rect.origin
+        (0 ..< size).forEach { i in
+            (0 ..< size).forEach { j in
+                let origin = CGPoint(
+                    x: base.x + (CGFloat(j) * cellSize.width),
+                    y: base.y + (CGFloat(i) * cellSize.height)
+                )
+                let subRect = CGRect(
+                    origin: origin,
+                    size: cellSize
+                )
+                let path = UIBezierPath(ovalIn: subRect)
+                let cellColor = colorDict[grid[(i,j)]]
+                cellColor?.setFill()
+                path.fill()
+            }
+        }
+        
+        // path
+        (0 ..< size+1).forEach {
+            drawLine(
+                start:  CGPoint(x: CGFloat($0)/CGFloat(size) * rect.size.width, y: 0.0),
+                end:    CGPoint(x: CGFloat($0)/CGFloat(size) * rect.size.width, y: rect.size.height)
+            )
+            drawLine(
+                start:  CGPoint(x: 0.0, y: CGFloat($0)/CGFloat(size) * rect.size.height),
+                end:    CGPoint(x: rect.size.width, y: CGFloat($0)/CGFloat(size) * rect.size.height)
+            )
+        }
+    }
+    func drawLine(start:CGPoint, end:CGPoint) {
+        let path = UIBezierPath()
+        path.lineWidth = gridWidth
+        path.move(to: start)
+        path.addLine(to: end)
+        gridColor.setStroke()
+        path.stroke()
+    }
 }
