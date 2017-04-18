@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,13 +19,25 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ip-CO-buk" userLabel="Shader">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.23825431034482758" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="4Ip-CO-buk" secondAttribute="bottom" id="4Md-Wo-79U"/>
+                            <constraint firstItem="4Ip-CO-buk" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="6HQ-l2-LyV"/>
+                            <constraint firstItem="4Ip-CO-buk" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="VWc-RP-zsA"/>
+                            <constraint firstAttribute="trailing" secondItem="4Ip-CO-buk" secondAttribute="trailing" id="gyd-ip-hbn"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="Drum Set-25" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Simulation-->
         <scene sceneID="wg7-f3-ORb">
@@ -38,13 +50,25 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC4-We-TUZ" userLabel="Shader">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.23335129310344827" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wC4-We-TUZ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="5ba-I2-uO9"/>
+                            <constraint firstItem="wC4-We-TUZ" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="9cg-SI-uxg"/>
+                            <constraint firstAttribute="trailing" secondItem="wC4-We-TUZ" secondAttribute="trailing" id="cXb-6f-CpT"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="wC4-We-TUZ" secondAttribute="bottom" id="vnh-jb-d1C"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulation" image="Grid-25" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="iV9-qh-ZC9">
@@ -57,13 +81,25 @@
                     <view key="view" contentMode="scaleToFill" id="WwB-4u-n3Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TL-Z5-r4R" userLabel="Shader">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.26047952586206896" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7TL-Z5-r4R" secondAttribute="trailing" id="90Z-5w-xRE"/>
+                            <constraint firstItem="cbh-5i-Xmc" firstAttribute="top" secondItem="7TL-Z5-r4R" secondAttribute="bottom" id="9XR-es-Nvn"/>
+                            <constraint firstItem="7TL-Z5-r4R" firstAttribute="top" secondItem="dzB-v4-DN5" secondAttribute="bottom" id="Mll-87-Zhx"/>
+                            <constraint firstItem="7TL-Z5-r4R" firstAttribute="leading" secondItem="WwB-4u-n3Z" secondAttribute="leading" id="b2z-eg-WPm"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="Line Chart-25" id="JhD-X6-1wY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93a-vR-p1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="0.0"/>
+            <point key="canvasLocation" x="1509.5999999999999" y="-0.44977511244377816"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
