@@ -34,7 +34,6 @@ class StandardEngine: EngineProtocol {
     var refreshTimer: Timer?
     var refreshRate: Double = 0.0
     var delegate: EngineDelegate?
-
     
     required init(rows: Int, cols: Int) {
         self.rows = rows
@@ -45,7 +44,6 @@ class StandardEngine: EngineProtocol {
     func step() -> GridProtocol {
         return grid.next()
     }
-    
     
 }
 

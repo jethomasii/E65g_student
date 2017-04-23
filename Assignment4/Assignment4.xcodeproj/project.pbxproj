@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27276D5F1EAD243000F821EF /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27276D5E1EAD243000F821EF /* Engine.swift */; };
+		27276D611EAD510000F821EF /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27276D601EAD510000F821EF /* GridView.swift */; };
 		27B75AA81EA3C8B30001547F /* InstrumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B75AA71EA3C8B30001547F /* InstrumentationViewController.swift */; };
 		27B75AB11EA3C9710001547F /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B75AAF1EA3C9710001547F /* SimulationViewController.swift */; };
 		27B75AB21EA3C9710001547F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B75AB01EA3C9710001547F /* StatisticsViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		27276D5E1EAD243000F821EF /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		27276D601EAD510000F821EF /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = ../../Assignment3/Assignment3/GridView.swift; sourceTree = "<group>"; };
 		27B75AA71EA3C8B30001547F /* InstrumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
 		27B75AAF1EA3C9710001547F /* SimulationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		27B75AB01EA3C9710001547F /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				FB475A371E8828EF00D2EAD3 /* Grid.swift */,
 				27276D5E1EAD243000F821EF /* Engine.swift */,
+				27276D601EAD510000F821EF /* GridView.swift */,
 				FBAD2E061E2BE38C008207C0 /* AppDelegate.swift */,
 				FBAD2E0C1E2BE38C008207C0 /* Main.storyboard */,
 				27B75AA71EA3C8B30001547F /* InstrumentationViewController.swift */,
@@ -152,6 +155,7 @@
 				FBAD2E071E2BE38C008207C0 /* AppDelegate.swift in Sources */,
 				27B75AB11EA3C9710001547F /* SimulationViewController.swift in Sources */,
 				FB475A381E8828EF00D2EAD3 /* Grid.swift in Sources */,
+				27276D611EAD510000F821EF /* GridView.swift in Sources */,
 				27B75AA81EA3C8B30001547F /* InstrumentationViewController.swift in Sources */,
 				27276D5F1EAD243000F821EF /* Engine.swift in Sources */,
 				27B75AB21EA3C9710001547F /* StatisticsViewController.swift in Sources */,
