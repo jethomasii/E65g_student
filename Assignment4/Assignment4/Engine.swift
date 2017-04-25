@@ -34,19 +34,16 @@ class StandardEngine: EngineProtocol {
     var refreshTimer: Timer?
     var refreshRate: Double = 0.0
     var delegate: EngineDelegate?
+    static var sharedEngine = StandardEngine(rows:10,cols:10)
     
     required init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
-        self.grid = Grid (rows, cols, cellInitializer: emptyInitializer)
+        self.grid = Grid (rows, cols)
     }
     
     func step() -> GridProtocol {
         return grid.next()
     }
     
-}
-
-public func emptyInitializer(pos: GridPosition) -> CellState {
-    return .empty
 }

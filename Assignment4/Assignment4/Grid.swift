@@ -89,6 +89,16 @@ public struct Grid: GridProtocol {
         size = GridSize(rows, cols)
         lazyPositions(self.size).forEach { self[$0.row, $0.col] = cellInitializer($0) }
     }
+    
+    public init(_ rows: Int, _ cols: Int) {
+        _cells = [[CellState]](repeatElement( [CellState](repeatElement(.empty, count: rows)), count: cols))
+        size = GridSize(rows, cols)
+        lazyPositions(self.size).forEach { self[$0.row, $0.col] = .empty }
+    }
+    
+    private func emptyInitializer(pos: GridPosition) -> CellState {
+        return .empty
+    }
 }
 
 extension Grid: Sequence {
@@ -135,6 +145,7 @@ extension Grid: Sequence {
             grid = newGrid
             return grid
         }
+        
     }
     
     public func makeIterator() -> GridIterator { return GridIterator(grid: self) }
@@ -148,3 +159,5 @@ public extension Grid {
         }
     }
 }
+
+

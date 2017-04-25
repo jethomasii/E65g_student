@@ -13,10 +13,12 @@ class InstrumentationViewController: UIViewController {
     @IBOutlet weak var refreshSlider: UISlider!
     @IBOutlet weak var colText: UITextField!
     @IBOutlet weak var rowText: UITextField!
+    var engine: StandardEngine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        engine = StandardEngine.sharedEngine
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,6 +39,7 @@ class InstrumentationViewController: UIViewController {
         else { refreshSlider.isEnabled = false }
     }
     @IBAction func refreshRateDidChange(_ sender: UISlider) {
-        
+        engine.refreshRate = Double(sender.value)
     }
+    
 }

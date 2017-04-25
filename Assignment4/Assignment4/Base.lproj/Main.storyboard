@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina3_5" orientation="landscape">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,17 +19,17 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ip-CO-buk" userLabel="Shader">
-                                <rect key="frame" x="0.0" y="20" width="480" height="251"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SB-fa-gFU" userLabel="ConrolBox">
-                                        <rect key="frame" x="120.5" y="6.5" width="239" height="239"/>
+                                        <rect key="frame" x="8" y="54" width="304" height="304"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qjc-UM-GIK">
-                                                <rect key="frame" x="100.5" y="59.5" width="37" height="30"/>
+                                                <rect key="frame" x="133" y="92" width="37" height="30"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
@@ -38,7 +38,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-bh-YFA">
-                                                <rect key="frame" x="100.5" y="5.5" width="37" height="30"/>
+                                                <rect key="frame" x="133" y="38" width="37" height="30"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
@@ -47,55 +47,55 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lTQ-RS-dEL" userLabel="RefreshSwitch">
-                                                <rect key="frame" x="174.5" y="103.5" width="51" height="31"/>
+                                                <rect key="frame" x="207" y="136" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="refreshDidToggle:" destination="9pv-A4-QxB" eventType="valueChanged" id="zfM-qE-Wj3"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Columns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPY-FJ-8h0">
-                                                <rect key="frame" x="-7.5" y="9.5" width="68" height="21"/>
+                                                <rect key="frame" x="25" y="42" width="68" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Thp-4t-YiR" userLabel="ColStepper">
-                                                <rect key="frame" x="152.5" y="5.5" width="94" height="29"/>
+                                                <rect key="frame" x="185" y="38" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="colStepperDidTouch:" destination="9pv-A4-QxB" eventType="valueChanged" id="IU9-gb-xY1"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6d-f7-Wc2">
-                                                <rect key="frame" x="-7.5" y="63.5" width="41" height="21"/>
+                                                <rect key="frame" x="25" y="96" width="41" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Um-gl-uHp" userLabel="RowStepper">
-                                                <rect key="frame" x="152.5" y="59.5" width="94" height="29"/>
+                                                <rect key="frame" x="185" y="92" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="rowStepperDidTouch:" destination="9pv-A4-QxB" eventType="valueChanged" id="m8X-rS-9SH"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dw-g8-hzl">
-                                                <rect key="frame" x="69.5" y="144.5" width="99" height="21"/>
+                                                <rect key="frame" x="102" y="177" width="99" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjE-YE-5H9">
-                                                <rect key="frame" x="-7.5" y="108.5" width="86" height="21"/>
+                                                <rect key="frame" x="25" y="141" width="86" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Py4-lk-rra">
-                                                <rect key="frame" x="-4.5" y="175.5" width="248" height="31"/>
+                                                <rect key="frame" x="28" y="208" width="248" height="31"/>
                                                 <connections>
                                                     <action selector="refreshRateDidChange:" destination="9pv-A4-QxB" eventType="valueChanged" id="Xgk-Wt-wwZ"/>
                                                 </connections>
                                             </slider>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="All images for this app provided by https://icons8.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="s1I-Ip-ORG">
-                                                <rect key="frame" x="1" y="210.5" width="238.5" height="23"/>
+                                                <rect key="frame" x="1" y="243" width="303.5" height="23"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="1v7-yz-xpm"/>
@@ -174,12 +174,58 @@
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC4-We-TUZ" userLabel="Shader">
-                                <rect key="frame" x="0.0" y="20" width="480" height="251"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjZ-zy-PCM" userLabel="GridView" customClass="GridView" customModule="Assignment4" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="77.5" width="256" height="256"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="AjZ-zy-PCM" secondAttribute="height" multiplier="1:1" id="ANT-LH-2cg"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="livingColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bornColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                                <color key="value" red="0.0" green="0.0" blue="1" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="diedColor">
+                                                <color key="value" red="0.0" green="0.0" blue="1" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="gridWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mr-AT-a2V">
+                                        <rect key="frame" x="32" y="47" width="32" height="30"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="stepDidTouch:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Ytu-UF-9pe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.23335129310344827" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="height" secondItem="wC4-We-TUZ" secondAttribute="height" multiplier="0.8" priority="750" id="6hc-IV-e6I"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="width" secondItem="wC4-We-TUZ" secondAttribute="width" multiplier="0.8" priority="750" id="8F6-AF-2yO"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="top" secondItem="8mr-AT-a2V" secondAttribute="bottom" constant="0.5" id="Ayx-b1-MNO"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="width" relation="lessThanOrEqual" secondItem="wC4-We-TUZ" secondAttribute="width" multiplier="0.8" priority="750" id="NN6-Xh-8A5"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="centerX" secondItem="wC4-We-TUZ" secondAttribute="centerX" id="NaF-eD-Cmb"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="centerY" secondItem="wC4-We-TUZ" secondAttribute="centerY" id="O8C-82-SwW"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="height" relation="lessThanOrEqual" secondItem="wC4-We-TUZ" secondAttribute="height" multiplier="0.8" priority="750" id="W62-mY-6AW"/>
+                                    <constraint firstItem="AjZ-zy-PCM" firstAttribute="leading" secondItem="8mr-AT-a2V" secondAttribute="leading" id="hrL-ph-Nz9"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,6 +237,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulation" image="Grid-25" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="mainGrid" destination="AjZ-zy-PCM" id="6fL-QA-AoX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,11 +254,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cbh-5i-Xmc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WwB-4u-n3Z">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TL-Z5-r4R" userLabel="Shader">
-                                <rect key="frame" x="0.0" y="20" width="480" height="251"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.26047952586206896" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>

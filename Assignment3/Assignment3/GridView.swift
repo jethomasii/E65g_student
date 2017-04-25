@@ -12,7 +12,7 @@ import UIKit
     /*  grid - Grid object used to store the grid
         updated when size changes as per problem 2
     */
-    var grid = Grid(20,20)
+    var grid = Grid (20, 20)
     @IBInspectable var size = 20 {
         didSet { grid = Grid(size,size) }
     }
