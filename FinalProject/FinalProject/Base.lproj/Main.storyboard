@@ -85,19 +85,35 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mb-6u-Y1X">
-                                        <rect key="frame" x="32" y="47" width="32" height="30"/>
+                                        <rect key="frame" x="32" y="41" width="42" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Next"/>
                                         <connections>
                                             <action selector="stepDidTouch:" destination="HRk-71-Arg" eventType="touchUpInside" id="dhE-lq-UA4"/>
                                         </connections>
                                     </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fu-Uc-H4Y">
+                                        <rect key="frame" x="239" y="41.5" width="51" height="31"/>
+                                    </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IT-DV-BsY">
+                                        <rect key="frame" x="162" y="41" width="69" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="stepDidTouch:" destination="HRk-71-Arg" eventType="touchUpInside" id="4eS-jG-R6v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.2333512931" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="u08-lt-FBD" firstAttribute="top" secondItem="1IT-DV-BsY" secondAttribute="bottom" constant="0.5" id="1bl-Uv-3Rc"/>
+                                    <constraint firstItem="5fu-Uc-H4Y" firstAttribute="leading" secondItem="1IT-DV-BsY" secondAttribute="trailing" constant="8" id="4u3-K9-Orh"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="width" secondItem="GGd-MG-09M" secondAttribute="width" multiplier="0.8" priority="750" id="81y-P5-1zh"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="height" secondItem="GGd-MG-09M" secondAttribute="height" multiplier="0.8" priority="750" id="CFR-OV-kPg"/>
+                                    <constraint firstItem="5fu-Uc-H4Y" firstAttribute="trailing" secondItem="u08-lt-FBD" secondAttribute="trailing" id="Gxh-Cw-WvK"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="width" relation="lessThanOrEqual" secondItem="GGd-MG-09M" secondAttribute="width" multiplier="0.8" priority="750" id="N2p-DP-Hgr"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="height" relation="lessThanOrEqual" secondItem="GGd-MG-09M" secondAttribute="height" multiplier="0.8" priority="750" id="Vbc-ur-jwr"/>
+                                    <constraint firstItem="u08-lt-FBD" firstAttribute="top" secondItem="5fu-Uc-H4Y" secondAttribute="bottom" constant="5" id="jtI-wD-dvA"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="leading" secondItem="9mb-6u-Y1X" secondAttribute="leading" id="otQ-y2-02H"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="centerY" secondItem="GGd-MG-09M" secondAttribute="centerY" id="p5r-7v-uZv"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="top" secondItem="9mb-6u-Y1X" secondAttribute="bottom" constant="0.5" id="z6V-dy-Qqh"/>

@@ -66,9 +66,15 @@ public protocol GridViewDataSource {
                     size: cellSize
                 )
                 let path = UIBezierPath(ovalIn: subRect)
-                //let grid = gridDataSource
-                let cellColor = colorDict[gridDataSource![i,j]]
-                cellColor?.setFill()
+                
+                // Now that we're using a data source, protect against nil for IBDesignable function
+                var cellColor: UIColor
+                if gridDataSource != nil {
+                    cellColor = colorDict[(gridDataSource![i,j])]!
+                } else {
+                    cellColor = colorDict[CellState.empty]!
+                }
+                cellColor.setFill()                
                 path.fill()
             }
         }
