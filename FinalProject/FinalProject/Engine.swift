@@ -43,7 +43,12 @@ class StandardEngine: EngineProtocol {
     }
     
     func step() -> GridProtocol {
-        return grid.next()
+        let newGrid = grid.next()
+        self.grid = newGrid
+        
+        // Notifications go here
+        
+        return self.grid
     }
     
 }

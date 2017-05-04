@@ -27,13 +27,12 @@ class SimulationViewController: UIViewController, EngineDelegate {
     }
     
     @IBAction func stepDidTouch(_ sender: UIButton) {
-        engine.grid = engine.step()
+        engine.step()
+        self.mainGrid.setNeedsDisplay()
     }
     
     func engineDidUpdate(withGrid: GridProtocol) {
-        mainGrid.grid = withGrid as! Grid
-        mainGrid.size = engine.rows
-        mainGrid.setNeedsDisplay()
+        self.mainGrid.setNeedsDisplay()
     }
     
 }
