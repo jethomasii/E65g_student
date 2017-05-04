@@ -27,7 +27,8 @@ class SimulationViewController: UIViewController, EngineDelegate {
     }
     
     @IBAction func stepDidTouch(_ sender: UIButton) {
-        engine.step()
+        let nextGrid = self.mainGrid.grid
+        self.mainGrid.grid = nextGrid.next()
         self.mainGrid.setNeedsDisplay()
     }
     
