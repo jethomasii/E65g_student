@@ -8,20 +8,30 @@
 
 import UIKit
 
+public protocol GridViewDataSource {
+    subscript (row: Int, col: Int) -> CellState { get set }
+}
+
 @IBDesignable class GridView: UIView {
     /*  grid - Grid object used to store the grid
         updated when size changes as per problem 2
     */
-    var grid = Grid (20, 20)
+    //var grid = Grid (20, 20)
+    /*
     @IBInspectable var size = 20 {
         didSet { grid = Grid(size,size) }
     }
+    */
+    
+    @IBInspectable var size = 20
     @IBInspectable var livingColor = UIColor.black
     @IBInspectable var emptyColor = UIColor.clear
     @IBInspectable var bornColor = UIColor.gray
     @IBInspectable var diedColor = UIColor.gray
     @IBInspectable var gridColor = UIColor.black
     @IBInspectable var gridWidth = CGFloat(1.0)
+    
+    var gridDataSource: GridViewDataSource?
     
     override func draw(_ rect: CGRect) {
         
@@ -55,7 +65,8 @@ import UIKit
                     size: cellSize
                 )
                 let path = UIBezierPath(ovalIn: subRect)
-                let cellColor = colorDict[grid[(i,j)]]
+                let grid = gridDataSource
+                let cellColor = colorDict[(grid?[(i,j)])!]
                 cellColor?.setFill()
                 path.fill()
             }
@@ -110,8 +121,16 @@ import UIKit
         guard lastTouchedPosition?.row != pos.row
             || lastTouchedPosition?.col != pos.col
             else { return pos }
+        
+        if gridDataSource != nil {
+            gridDataSource![pos.row, pos.col] = gridDataSource![pos.row, pos.col].isAlive ? .empty : .alive
+            setNeedsDisplay()
+        }
+        
+        /* old method of updating
         grid[(pos.row,pos.col)] = grid[(pos.row,pos.col)].toggle(value: grid[(pos.row,pos.col)])
         setNeedsDisplay()
+        */
         return pos
     }
     
@@ -132,9 +151,12 @@ import UIKit
     /*  iterateGrid - advances the grid based on current
         cells one iteration.
     */
+    // not sure this is needed any longer
+    /*
     func iterateGrid() {
         grid = grid.next()
         setNeedsDisplay()
     }
+    */
     
 }

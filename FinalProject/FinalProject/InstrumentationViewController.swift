@@ -33,6 +33,12 @@ class InstrumentationViewController: UIViewController {
     @IBAction func rowStepperDidTouch(_ sender: UIStepper) {
         rowText.text = String(format:"%.0f", sender.value)
     }
+
+    
+    @IBAction func anyStepperDidTouch(_ sender: UIStepper) {
+        rowText.text = String(format:"%.0f", sender.value)
+        colText.text = String(format:"%.0f", sender.value)
+    }
     
     @IBAction func refreshDidToggle(_ sender: UISwitch) {
         if (sender.isOn) { refreshSlider.isEnabled = true }

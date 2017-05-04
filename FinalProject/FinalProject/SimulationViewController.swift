@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SimulationViewController: UIViewController, EngineDelegate {
+class SimulationViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
     @IBOutlet weak var mainGrid: GridView!
     var engine: StandardEngine!
@@ -17,8 +17,16 @@ class SimulationViewController: UIViewController, EngineDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.sharedEngine
+        mainGrid.size = engine.grid.size.rows
         engine.delegate = self
+        
+        mainGrid.gridDataSource = self
         self.engineDidUpdate(withGrid: engine.grid)
+    }
+    
+    public subscript (row: Int, col: Int) -> CellState {
+        get { return engine.grid[row,col] }
+        set { engine.grid[row,col] = newValue }
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,8 +35,7 @@ class SimulationViewController: UIViewController, EngineDelegate {
     }
     
     @IBAction func stepDidTouch(_ sender: UIButton) {
-        let nextGrid = self.mainGrid.grid
-        self.mainGrid.grid = nextGrid.next()
+        engine.step()
         self.mainGrid.setNeedsDisplay()
     }
     
