@@ -10,6 +10,8 @@ import UIKit
 
 class InstrumentationViewController: UIViewController {
     
+    @IBOutlet weak var rowStepper: UIStepper!
+    @IBOutlet weak var colStepper: UIStepper!
     @IBOutlet weak var refreshSlider: UISlider!
     @IBOutlet weak var colText: UITextField!
     @IBOutlet weak var rowText: UITextField!
@@ -19,6 +21,8 @@ class InstrumentationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.sharedEngine
+        engine.rows = Int(rowStepper.value)
+        engine.cols = Int(colStepper.value)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,8 +40,17 @@ class InstrumentationViewController: UIViewController {
 
     
     @IBAction func anyStepperDidTouch(_ sender: UIStepper) {
+        // This code keeps rows == to col because my grid is not updated for variable sizes
+        
         rowText.text = String(format:"%.0f", sender.value)
         colText.text = String(format:"%.0f", sender.value)
+        
+        rowStepper.value = sender.value
+        colStepper.value = sender.value
+        
+        engine.grid = Grid(Int(sender.value), Int(sender.value))
+        engine.delegate?.engineDidUpdate(withGrid: engine.grid)
+        
     }
     
     @IBAction func refreshDidToggle(_ sender: UISwitch) {

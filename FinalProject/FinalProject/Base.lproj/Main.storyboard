@@ -169,7 +169,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-hy-bEu" userLabel="ColStepper">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="150" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-hy-bEu" userLabel="ColStepper">
                                                 <rect key="frame" x="193.5" y="9.5" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="anyStepperDidTouch:" destination="vr8-KD-PeW" eventType="valueChanged" id="dVD-Ru-E6f"/>
@@ -181,7 +181,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7pa-0L-WHS" userLabel="RowStepper">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="150" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7pa-0L-WHS" userLabel="RowStepper">
                                                 <rect key="frame" x="193.5" y="64" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="anyStepperDidTouch:" destination="vr8-KD-PeW" eventType="valueChanged" id="AV6-g5-5c0"/>
@@ -320,8 +320,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrumentation" image="Drum Set-25" id="dWM-xY-jLi"/>
                     <connections>
+                        <outlet property="colStepper" destination="h7H-hy-bEu" id="cEW-iK-fgg"/>
                         <outlet property="colText" destination="uUi-Cs-N24" id="0Cl-f3-tGL"/>
                         <outlet property="refreshSlider" destination="28f-R4-MXm" id="Bwc-R1-nsI"/>
+                        <outlet property="rowStepper" destination="7pa-0L-WHS" id="MTm-97-KRK"/>
                         <outlet property="rowText" destination="RgP-Fs-Xi5" id="oV8-pd-cXf"/>
                     </connections>
                 </viewController>
@@ -340,9 +342,9 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="kcp-T5-Fcv" kind="relationship" relationship="viewControllers" id="iy2-zc-R4R"/>
                         <segue destination="HRk-71-Arg" kind="relationship" relationship="viewControllers" id="LzF-QX-5Rf"/>
-                        <segue destination="3hX-2q-5lX" kind="relationship" relationship="viewControllers" id="OHD-TG-ypN"/>
+                        <segue destination="kcp-T5-Fcv" kind="relationship" relationship="viewControllers" id="yru-9g-vhB"/>
+                        <segue destination="3hX-2q-5lX" kind="relationship" relationship="viewControllers" id="G0w-0i-JUU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbx-I9-Qyt" sceneMemberID="firstResponder"/>

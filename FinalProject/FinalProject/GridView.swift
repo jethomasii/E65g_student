@@ -16,8 +16,9 @@ public protocol GridViewDataSource {
     /*  grid - Grid object used to store the grid
         updated when size changes as per problem 2
     */
-    //var grid = Grid (20, 20)
-    /*
+
+    /* Old way of maintaining the grid, from Assignment 3
+    var grid = Grid (20, 20)
     @IBInspectable var size = 20 {
         didSet { grid = Grid(size,size) }
     }
@@ -89,6 +90,8 @@ public protocol GridViewDataSource {
     */
     func drawLine(start:CGPoint, end:CGPoint) {
         let path = UIBezierPath()
+        // Change the line width based on the size of the grid (reduces width as grows)
+        gridWidth.multiply(by: CGFloat(10.0/Double(size)))
         path.lineWidth = gridWidth
         path.move(to: start)
         path.addLine(to: end)
@@ -116,6 +119,13 @@ public protocol GridViewDataSource {
         i.e. toggle states by touch
     */
     func process(touches: Set<UITouch>) -> Position? {
+        
+        // Only respect touches in the displayed GridView, sourced from Lecture 9 Notes
+        let touchY = touches.first!.location(in: self.superview).y
+        let touchX = touches.first!.location(in: self.superview).x
+        guard touchX > frame.origin.x && touchX < (frame.origin.x + frame.size.width) else { return nil }
+        guard touchY > frame.origin.y && touchY < (frame.origin.y + frame.size.height) else { return nil }
+        
         guard touches.count == 1 else { return nil }
         let pos = convert(touch: touches.first!)
         guard lastTouchedPosition?.row != pos.row

@@ -40,6 +40,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     }
     
     func engineDidUpdate(withGrid: GridProtocol) {
+        self.mainGrid.size = withGrid.size.rows
         self.mainGrid.setNeedsDisplay()
     }
     
