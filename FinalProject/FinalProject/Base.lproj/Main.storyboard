@@ -199,7 +199,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000149011612" minValue="0.10000000149011612" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="28f-R4-MXm">
+                                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000149011612" minValue="0.10000000149011612" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="28f-R4-MXm">
                                                 <rect key="frame" x="36.5" y="180" width="248" height="31"/>
                                                 <connections>
                                                     <action selector="refreshRateDidChange:" destination="kcp-T5-Fcv" eventType="valueChanged" id="F7A-8L-xxN"/>
