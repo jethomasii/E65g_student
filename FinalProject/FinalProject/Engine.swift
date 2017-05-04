@@ -32,7 +32,6 @@ class StandardEngine: EngineProtocol {
     var cols: Int
     var grid: GridProtocol
     var refreshTimer: Timer?
-    var refreshRate: Double = 0.0
     var delegate: EngineDelegate?
     static var sharedEngine = StandardEngine(rows:10,cols:10)
     
@@ -42,11 +41,40 @@ class StandardEngine: EngineProtocol {
         self.grid = Grid (rows, cols)
     }
     
+    var refreshRate: Double = 0.0 {
+        didSet {
+            if refreshRate > 0.0 {
+                // Invalidate running timer, stops some crazy thing
+                if (refreshTimer != nil) {
+                    refreshTimer?.invalidate()
+                    refreshTimer = nil
+                }
+                refreshTimer = Timer.scheduledTimer(
+                    withTimeInterval: refreshRate,
+                    repeats: true
+                ) { (t: Timer) in
+                    _ = self.step()
+                }
+            }
+            else {
+                refreshTimer?.invalidate()
+                refreshTimer = nil
+            }
+        }
+    }
+    
     func step() -> GridProtocol {
         let newGrid = grid.next()
         self.grid = newGrid
         
         // Notifications go here
+        
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["engine" : self])
+        nc.post(n)
         
         return self.grid
     }

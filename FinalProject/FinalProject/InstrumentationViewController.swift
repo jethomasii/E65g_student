@@ -10,6 +10,7 @@ import UIKit
 
 class InstrumentationViewController: UIViewController {
     
+    @IBOutlet weak var refreshSwitch: UISwitch!
     @IBOutlet weak var rowStepper: UIStepper!
     @IBOutlet weak var colStepper: UIStepper!
     @IBOutlet weak var refreshSlider: UISlider!
@@ -21,8 +22,6 @@ class InstrumentationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.sharedEngine
-        engine.rows = Int(rowStepper.value)
-        engine.cols = Int(colStepper.value)
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,6 +29,7 @@ class InstrumentationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /* to be implemented if ever row ≠ grid, but probably not
     @IBAction func colStepperDidTouch(_ sender: UIStepper) {
         colText.text = String(format:"%.0f", sender.value)
     }
@@ -37,8 +37,8 @@ class InstrumentationViewController: UIViewController {
     @IBAction func rowStepperDidTouch(_ sender: UIStepper) {
         rowText.text = String(format:"%.0f", sender.value)
     }
+    */
 
-    
     @IBAction func anyStepperDidTouch(_ sender: UIStepper) {
         // This code keeps rows == to col because my grid is not updated for variable sizes
         
@@ -53,12 +53,19 @@ class InstrumentationViewController: UIViewController {
         
     }
     
-    @IBAction func refreshDidToggle(_ sender: UISwitch) {
-        if (sender.isOn) { refreshSlider.isEnabled = true }
-        else { refreshSlider.isEnabled = false }
-    }
-    @IBAction func refreshRateDidChange(_ sender: UISlider) {
-        engine.refreshRate = Double(sender.value)
+    @IBAction func refreshDidToggle(_ sender: Any) {
+        if (refreshSwitch.isOn) {
+            let rate: Double = 1.0 / Double(refreshSlider.value)
+            print("Slider value %", refreshSlider.value)
+            print("Refresh every % seconds", rate)
+            engine.refreshRate = rate
+        }
+        else if (!refreshSwitch.isOn) {
+            print("Disable refresh")
+            engine.refreshRate = 0.0
+            engine.refreshTimer?.invalidate()
+            engine.refreshTimer = nil
+        }
     }
     
 }
