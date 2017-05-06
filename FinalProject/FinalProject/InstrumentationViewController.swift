@@ -54,18 +54,15 @@ class InstrumentationViewController: UIViewController {
     }
     
     @IBAction func refreshDidToggle(_ sender: Any) {
+        
         if (refreshSwitch.isOn) {
-            let rate: Double = 1.0 / Double(refreshSlider.value)
-            print("Slider value %", refreshSlider.value)
-            print("Refresh every % seconds", rate)
-            engine.refreshRate = rate
+            engine.refreshRate = 1.0 / Double(refreshSlider.value)
         }
-        else if (!refreshSwitch.isOn) {
-            print("Disable refresh")
+        else {
             engine.refreshRate = 0.0
-            engine.refreshTimer?.invalidate()
-            engine.refreshTimer = nil
+
         }
+
     }
     
 }

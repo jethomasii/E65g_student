@@ -10,6 +10,8 @@ import UIKit
 
 class SimulationViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
+
+    @IBOutlet weak var refreshSwitch: UISwitch!
     @IBOutlet weak var mainGrid: GridView!
     var engine: StandardEngine!
     
@@ -28,13 +30,18 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         
         // Notification listening
         let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "EngineUpdate")
+        
+        // Notification names
+        let engineUpdate = Notification.Name(rawValue: "EngineUpdate")
+        
+        // Observers
         nc.addObserver(
-            forName: name,
+            forName: engineUpdate,
             object: nil,
             queue: nil) { (n) in
                 self.mainGrid.setNeedsDisplay()
         }
+
     }
     
     public subscript (row: Int, col: Int) -> CellState {
@@ -45,6 +52,16 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func refreshSwitchDidTouch(_ sender: UISwitch) {
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "RefreshToggle")
+    
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["simulation" : self])
+        nc.post(n)
     }
     
     @IBAction func stepDidTouch(_ sender: UIButton) {
