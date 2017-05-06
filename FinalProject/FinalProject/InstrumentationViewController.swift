@@ -8,7 +8,84 @@
 
 import UIKit
 
-class InstrumentationViewController: UIViewController {
+var sectionHeaders = [
+    "One", "Two", "Three", "Four", "Five", "Six"
+]
+
+var data = [
+    [
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date"
+    ],
+    [
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana"
+    ],
+    [
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry"
+    ],
+    [
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Date",
+        "Kiwi",
+        "Blueberry"
+    ]
+]
+
+
+class InstrumentationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var refreshSwitch: UISwitch!
     @IBOutlet weak var rowStepper: UIStepper!
@@ -29,6 +106,11 @@ class InstrumentationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Hide navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     /* to be implemented if ever row ≠ grid, but probably not
     @IBAction func colStepperDidTouch(_ sender: UIStepper) {
         colText.text = String(format:"%.0f", sender.value)
@@ -39,6 +121,30 @@ class InstrumentationViewController: UIViewController {
     }
     */
 
+    //MARK: TableView DataSource and Delegate
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier = "gridConf"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let label = cell.contentView.subviews.first as! UILabel
+        label.text = data[indexPath.section][indexPath.item]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionHeaders[section]
+    }
+    
+    //MARK: (#pragma mark ?) Control button handling
+    
     @IBAction func anyStepperDidTouch(_ sender: UIStepper) {
         // This code keeps rows == to col because my grid is not updated for variable sizes
         
