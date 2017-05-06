@@ -92,20 +92,40 @@
                                             <action selector="stepDidTouch:" destination="HRk-71-Arg" eventType="touchUpInside" id="dhE-lq-UA4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rme-lP-VM1">
+                                        <rect key="frame" x="134.5" y="39.5" width="51" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Reset"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RK6-ox-EgL">
+                                        <rect key="frame" x="244" y="39.5" width="44" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Save"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.2333512931" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="top" secondItem="9mb-6u-Y1X" secondAttribute="bottom" constant="2.5" id="0tP-Gw-v2E"/>
+                                    <constraint firstItem="Rme-lP-VM1" firstAttribute="centerY" secondItem="u08-lt-FBD" secondAttribute="centerY" id="2Ej-Gd-ymv"/>
+                                    <constraint firstItem="Rme-lP-VM1" firstAttribute="centerX" secondItem="GGd-MG-09M" secondAttribute="centerX" id="2Q3-C5-zaK"/>
                                     <constraint firstItem="9mb-6u-Y1X" firstAttribute="leading" secondItem="u08-lt-FBD" secondAttribute="trailing" constant="3" id="5Ro-C9-3ng"/>
+                                    <constraint firstItem="Rme-lP-VM1" firstAttribute="centerX" secondItem="GGd-MG-09M" secondAttribute="centerX" id="6X3-Rr-YIU"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="width" secondItem="GGd-MG-09M" secondAttribute="width" multiplier="0.8" priority="750" id="81y-P5-1zh"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="height" secondItem="GGd-MG-09M" secondAttribute="height" multiplier="0.8" priority="750" id="CFR-OV-kPg"/>
+                                    <constraint firstItem="RK6-ox-EgL" firstAttribute="leading" secondItem="9mb-6u-Y1X" secondAttribute="leading" id="I3a-N6-RcQ"/>
+                                    <constraint firstItem="RK6-ox-EgL" firstAttribute="centerY" secondItem="9mb-6u-Y1X" secondAttribute="centerY" id="Ioi-Uc-f3G"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="width" relation="lessThanOrEqual" secondItem="GGd-MG-09M" secondAttribute="width" multiplier="0.8" priority="750" id="N2p-DP-Hgr"/>
+                                    <constraint firstItem="Rme-lP-VM1" firstAttribute="centerX" secondItem="u08-lt-FBD" secondAttribute="centerX" id="S4A-S5-WbD"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="height" relation="lessThanOrEqual" secondItem="GGd-MG-09M" secondAttribute="height" multiplier="0.8" priority="750" id="Vbc-ur-jwr"/>
                                     <constraint firstItem="9mb-6u-Y1X" firstAttribute="top" secondItem="u08-lt-FBD" secondAttribute="top" id="Vyo-kn-YDL"/>
+                                    <constraint firstItem="RK6-ox-EgL" firstAttribute="trailing" secondItem="u08-lt-FBD" secondAttribute="trailing" id="Xod-MT-Ykv"/>
+                                    <constraint firstItem="Rme-lP-VM1" firstAttribute="leading" secondItem="9mb-6u-Y1X" secondAttribute="leading" id="Y0b-dq-dto"/>
+                                    <constraint firstItem="RK6-ox-EgL" firstAttribute="bottom" secondItem="u08-lt-FBD" secondAttribute="bottom" id="ZHp-E7-UtK"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="top" secondItem="9mb-6u-Y1X" secondAttribute="bottom" constant="0.5" id="nVd-ef-Q0i"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="leading" secondItem="9mb-6u-Y1X" secondAttribute="leading" id="oKl-y2-9wQ"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="centerY" secondItem="GGd-MG-09M" secondAttribute="centerY" id="p5r-7v-uZv"/>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="centerX" secondItem="GGd-MG-09M" secondAttribute="centerX" id="zxc-Ut-Gdn"/>
+                                    <constraint firstItem="Rme-lP-VM1" firstAttribute="centerY" secondItem="9mb-6u-Y1X" secondAttribute="centerY" id="zy8-oJ-PMx"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -114,12 +134,26 @@
                                         <exclude reference="0tP-Gw-v2E"/>
                                         <exclude reference="nVd-ef-Q0i"/>
                                         <exclude reference="oKl-y2-9wQ"/>
+                                        <exclude reference="2Ej-Gd-ymv"/>
+                                        <exclude reference="2Q3-C5-zaK"/>
+                                        <exclude reference="6X3-Rr-YIU"/>
+                                        <exclude reference="S4A-S5-WbD"/>
+                                        <exclude reference="Y0b-dq-dto"/>
+                                        <exclude reference="zy8-oJ-PMx"/>
+                                        <exclude reference="I3a-N6-RcQ"/>
+                                        <exclude reference="Ioi-Uc-f3G"/>
+                                        <exclude reference="Xod-MT-Ykv"/>
+                                        <exclude reference="ZHp-E7-UtK"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
                                         <include reference="5Ro-C9-3ng"/>
                                         <include reference="Vyo-kn-YDL"/>
+                                        <include reference="2Ej-Gd-ymv"/>
+                                        <include reference="Y0b-dq-dto"/>
+                                        <include reference="I3a-N6-RcQ"/>
+                                        <include reference="ZHp-E7-UtK"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
@@ -127,6 +161,12 @@
                                         <include reference="0tP-Gw-v2E"/>
                                         <exclude reference="nVd-ef-Q0i"/>
                                         <include reference="oKl-y2-9wQ"/>
+                                        <exclude reference="2Q3-C5-zaK"/>
+                                        <exclude reference="6X3-Rr-YIU"/>
+                                        <include reference="S4A-S5-WbD"/>
+                                        <include reference="zy8-oJ-PMx"/>
+                                        <include reference="Ioi-Uc-f3G"/>
+                                        <include reference="Xod-MT-Ykv"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -146,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6P-cu-8YS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826.25" y="532.5"/>
+            <point key="canvasLocation" x="825" y="532.5"/>
         </scene>
         <!--Instrumentation-->
         <scene sceneID="vMO-xT-aNp">
@@ -167,7 +207,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="246.5"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RgP-Fs-Xi5">
-                                                <rect key="frame" x="141" y="64" width="37" height="30"/>
+                                                <rect key="frame" x="141" y="64.5" width="37" height="30"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
@@ -176,7 +216,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUi-Cs-N24">
-                                                <rect key="frame" x="141" y="10" width="37" height="30"/>
+                                                <rect key="frame" x="141" y="10.5" width="37" height="30"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
@@ -185,55 +225,55 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tBL-Xs-2BA" userLabel="RefreshSwitch">
-                                                <rect key="frame" x="215" y="108" width="51" height="31"/>
+                                                <rect key="frame" x="215" y="108.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="refreshDidToggle:" destination="kcp-T5-Fcv" eventType="valueChanged" id="9LB-rb-3ef"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Columns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMk-Ei-0bB">
-                                                <rect key="frame" x="33" y="14" width="68" height="21"/>
+                                                <rect key="frame" x="33" y="14.5" width="68" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="150" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-hy-bEu" userLabel="ColStepper">
-                                                <rect key="frame" x="193" y="10" width="94" height="29"/>
+                                                <rect key="frame" x="193" y="10.5" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="anyStepperDidTouch:" destination="vr8-KD-PeW" eventType="valueChanged" id="dVD-Ru-E6f"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa8-uA-GZU">
-                                                <rect key="frame" x="33" y="68" width="41" height="21"/>
+                                                <rect key="frame" x="33" y="68.5" width="41" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="150" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7pa-0L-WHS" userLabel="RowStepper">
-                                                <rect key="frame" x="193" y="64" width="94" height="29"/>
+                                                <rect key="frame" x="193" y="64.5" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="anyStepperDidTouch:" destination="vr8-KD-PeW" eventType="valueChanged" id="AV6-g5-5c0"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHT-jg-gpb">
-                                                <rect key="frame" x="110" y="149" width="99" height="21"/>
+                                                <rect key="frame" x="110" y="149.5" width="99" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OH-Ea-3n3">
-                                                <rect key="frame" x="33" y="113" width="86" height="21"/>
+                                                <rect key="frame" x="33" y="113.5" width="86" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="28f-R4-MXm">
-                                                <rect key="frame" x="36" y="180" width="248" height="31"/>
+                                                <rect key="frame" x="36" y="180.5" width="248" height="31"/>
                                                 <connections>
                                                     <action selector="refreshDidToggle:" destination="vr8-KD-PeW" eventType="valueChanged" id="rGc-GA-bCr"/>
                                                 </connections>
                                             </slider>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="All images for this app provided by https://icons8.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="orE-1G-RFu">
-                                                <rect key="frame" x="0.0" y="215" width="320" height="23"/>
+                                                <rect key="frame" x="0.0" y="215.5" width="320" height="23"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="Lwf-gx-HeM"/>
