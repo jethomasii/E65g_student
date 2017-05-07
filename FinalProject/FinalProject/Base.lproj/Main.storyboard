@@ -554,6 +554,7 @@
                     <connections>
                         <outlet property="colStepper" destination="h7H-hy-bEu" id="cEW-iK-fgg"/>
                         <outlet property="colText" destination="uUi-Cs-N24" id="0Cl-f3-tGL"/>
+                        <outlet property="configTableView" destination="Egb-Ex-xeG" id="rmK-04-NXN"/>
                         <outlet property="refreshSlider" destination="28f-R4-MXm" id="Bwc-R1-nsI"/>
                         <outlet property="refreshSwitch" destination="tBL-Xs-2BA" id="JS0-9Q-wzQ"/>
                         <outlet property="rowStepper" destination="7pa-0L-WHS" id="MTm-97-KRK"/>

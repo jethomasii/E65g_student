@@ -19,9 +19,10 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var refreshSlider: UISlider!
     @IBOutlet weak var colText: UITextField!
     @IBOutlet weak var rowText: UITextField!
+    @IBOutlet weak var configTableView: UITableView!
     var engine: StandardEngine!
     var sectionHeaders = [String]()
-    var gridData = [[String]]()
+    var gridData = [NSArray]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         let identifier = "gridConf"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let label = cell.contentView.subviews.first as! UILabel
-        label.text = gridData[indexPath.section][indexPath.item]
+        let currentGridDictionary = gridData[indexPath.section][indexPath.item] as! NSDictionary
+        label.text = currentGridDictionary["title"] as? String
         return cell
     }
     
@@ -124,14 +126,11 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 print("no json")
                 return
             }
-            print(json)
-            let resultString = (json as AnyObject).description
-            let jsonArray = json as! NSArray
-            let jsonDictionary = jsonArray[0] as! NSDictionary
-            let jsonTitle = jsonDictionary["title"] as! String
-            let jsonContents = jsonDictionary["contents"] as! [[Int]]
-            print (jsonTitle, jsonContents)
-            
+            let gridArray = json as! NSArray
+            self.gridData.append(gridArray)
+            OperationQueue.main.addOperation {
+                self.configTableView.reloadData()
+            }
         }
     }
     
