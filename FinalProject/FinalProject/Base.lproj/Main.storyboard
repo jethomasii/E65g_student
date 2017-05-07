@@ -178,6 +178,9 @@
                                         <rect key="frame" x="343.5" y="190.5" width="44" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveGrid:" destination="HRk-71-Arg" eventType="touchUpInside" id="8ta-UF-4sF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.2333512931" colorSpace="calibratedRGB"/>

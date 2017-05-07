@@ -162,6 +162,8 @@ public extension Grid {
 
 // Function for retrieving number of cell states
 public extension GridProtocol {
+    
+    // Function for delivering the number of each CellState in the currentGrid
     public func getCellStateDict() -> [CellState: Int] {
         var stateDictionary = [CellState: Int]()
 
@@ -185,6 +187,17 @@ public extension GridProtocol {
         }
         
         return stateDictionary
+    }
+    
+    // function to retrieve the grid data, used to save or load grid
+    public func getCurrentGridData() -> [GridPosition] {
+        var resultArray = [GridPosition]()
+        lazyPositions(self.size).forEach {
+            if (self[$0.row,$0.col].isAlive) {
+                resultArray.append($0)
+            }
+        }
+        return resultArray
     }
 }
 

@@ -69,4 +69,36 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         self.engine.resetGrid()
     }
     
+    @IBAction func saveGrid(_ sender: Any) {
+        let defaultsDict = UserDefaults.standard
+        var savedGrids = Array<NSDictionary>()
+        let plistData = defaultsDict.object(forKey: "savedGrids") as! Data
+        
+        if (plistData.isEmpty) {
+            savedGrids = Array<NSDictionary>()
+            let defaultDictionary = ["title": "default", "contents": []] as [String : Any]
+            savedGrids.append(defaultDictionary as NSDictionary)
+        }
+        
+        let gridMap = engine.grid.getCurrentGridData()
+        print("Grid Data %", gridMap)
+        
+        let alert = UIAlertController(title: "Set Title", message: "Please enter a title for the saved grid", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.text = "title"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            return
+        }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            print("Text field: \(textField?.text)")
+        }))
+        
+        
+        self.present(alert, animated: true, completion:nil)
+    }
+    
 }

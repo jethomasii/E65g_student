@@ -74,10 +74,10 @@ class StandardEngine: EngineProtocol {
         
         // Update stats
         let currentStats = grid.getCellStateDict()
-        cumulativeStats[CellState.born]! = currentStats[CellState.born]!
-        cumulativeStats[CellState.alive]! = currentStats[CellState.alive]!
-        cumulativeStats[CellState.died]! = currentStats[CellState.died]!
-        cumulativeStats[CellState.empty]! = currentStats[CellState.empty]!
+        cumulativeStats[CellState.born]! += currentStats[CellState.born]!
+        cumulativeStats[CellState.alive]! += currentStats[CellState.alive]!
+        cumulativeStats[CellState.died]! += currentStats[CellState.died]!
+        cumulativeStats[CellState.empty]! += currentStats[CellState.empty]!
         
         self.notifyGridUpdate()
         
