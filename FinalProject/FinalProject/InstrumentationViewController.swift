@@ -29,20 +29,23 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.sharedEngine
         
-        // Check for saved grids
-        let defaultsDict = UserDefaults.standard
-        var savedGrids = Array<NSDictionary>()
-        let plistData = defaultsDict.object(forKey: "savedGrids") as! Data
+        // get saved grids
+        self.updateSavedGrids()
         
-        if (plistData.isEmpty) {
-            savedGrids = Array<NSDictionary>()
-            let defaultDictionary = ["title": "default", "contents": []] as [String : Any]
-            savedGrids.append(defaultDictionary as NSDictionary)
-        } else {
-            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData) as! [NSDictionary]
+        // Add Listener
+        let nc = NotificationCenter.default
+        
+        // Notification names
+        let engineUpdate = Notification.Name(rawValue: "SavedGridsUpdate")
+        
+        // Observers
+        nc.addObserver(
+            forName: engineUpdate,
+            object: nil,
+            queue: nil) { (n) in
+                self.updateSavedGrids()
         }
-        
-        gridData.append(savedGrids)
+
         
         // Create section headers
         sectionHeaders.append("Saved")
@@ -188,6 +191,23 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         let plistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
         let defaultsDict = UserDefaults.standard
         defaultsDict.set(plistData, forKey: "savedGrids")
+    }
+    
+    func updateSavedGrids() {
+        // Check for saved grids
+        let defaultsDict = UserDefaults.standard
+        var savedGrids = Array<NSDictionary>()
+        let plistData = defaultsDict.object(forKey: "savedGrids") as! Data
+        
+        if (!plistData.isEmpty) {
+            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData) as! [NSDictionary]
+        }
+        
+        if (gridData.count > 0) {
+            gridData[0] = savedGrids
+        } else {
+            gridData.append(savedGrids)
+        }
     }
     
 }

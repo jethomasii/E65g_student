@@ -190,11 +190,11 @@ public extension GridProtocol {
     }
     
     // function to retrieve the grid data, used to save or load grid
-    public func getCurrentGridData() -> [GridPosition] {
-        var resultArray = [GridPosition]()
+    public func getCurrentGridData() -> [[Int]] {
+        var resultArray = [[Int]]()
         lazyPositions(self.size).forEach {
             if (self[$0.row,$0.col].isAlive) {
-                resultArray.append($0)
+                resultArray.append([$0.row, $0.col])
             }
         }
         return resultArray
