@@ -10,8 +10,10 @@ import UIKit
 
 class GridEditorViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var editGrid: GridView!
     var engine: StandardEngine!
+    var gridDictionary: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,9 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
         // Update grid with initial values
         editGrid.gridDataSource = self
         self.engineDidUpdate(withGrid: engine.grid)
+        
+        // Update tile
+        titleTextField.text = gridDictionary.object(forKey: "title") as? String
     }
     
     override func didReceiveMemoryWarning() {

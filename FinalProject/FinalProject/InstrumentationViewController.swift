@@ -22,7 +22,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var configTableView: UITableView!
     var engine: StandardEngine!
     var sectionHeaders = [String]()
-    var gridData = [NSArray]()
+    var gridData = Array<Array<NSDictionary>>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +31,21 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         
         // Check for saved grids
         let defaultsDict = UserDefaults.standard
-        let savedGrids = defaultsDict.object(forKey: "savedGrids")
-        if (savedGrids != nil) {
-            sectionHeaders.append("Saved")
-            //self.gridData.append(savedGrids)
+        var savedGrids = Array<NSDictionary>()
+        let plistData = defaultsDict.object(forKey: "savedGrids") as! Data
+        
+        if (plistData.isEmpty) {
+            savedGrids = Array<NSDictionary>()
+            let defaultDictionary = ["title": "default", "contents": []] as [String : Any]
+            savedGrids.append(defaultDictionary as NSDictionary)
+        } else {
+            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData) as! [NSDictionary]
         }
         
+        gridData.append(savedGrids)
+        
+        // Create section headers
+        sectionHeaders.append("Saved")
         sectionHeaders.append("Downloaded")
         
         // Download grid information for class
@@ -78,13 +87,47 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         let identifier = "gridConf"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let label = cell.contentView.subviews.first as! UILabel
-        let currentGridDictionary = gridData[indexPath.section][indexPath.item] as! NSDictionary
+        let currentGridDictionary = gridData[indexPath.section][indexPath.item] 
         label.text = currentGridDictionary["title"] as? String
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionHeaders[section]
+    }
+    
+    // send item to the grid editor view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let currentIndexPath = configTableView.indexPathForSelectedRow
+        if let currentIndexPath = currentIndexPath {
+            let currentGridDictionary = gridData[currentIndexPath.section][currentIndexPath.row]
+            if let vc = segue.destination as? GridEditorViewController {
+                // add values
+                vc.gridDictionary = currentGridDictionary
+            }
+        }
+    }
+    
+    // allow deletion of items
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            var newData = gridData[indexPath.section]
+            newData.remove(at: indexPath.row)
+            gridData[indexPath.section] = newData
+            // Update Saved Grids
+            self.saveGrids()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
+        }
+    }
+    
+    // Do not allow deletion/editing of downloaded items
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if (sectionHeaders[indexPath.section] == "Saved") {
+            return true
+        } else {
+            return false
+        }
     }
     
     //MARK: (#pragma mark ?) Control button handling
@@ -100,7 +143,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         
         engine.grid = Grid(Int(sender.value), Int(sender.value))
         engine.delegate?.engineDidUpdate(withGrid: engine.grid)
-        
     }
     
     @IBAction func refreshDidToggle(_ sender: Any) {
@@ -111,6 +153,13 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         else {
             engine.refreshRate = 0.0
         }
+    }
+    
+    @IBAction func addNewConfiguration(_ sender: Any) {
+        let currentGridDictionary = ["title": "new", "contents": nil]
+        gridData[0] = [currentGridDictionary as NSDictionary] + gridData[0]
+        self.saveGrids()
+        self.configTableView.reloadData()
     }
     
     //MARK: Miscellaneous
@@ -126,12 +175,19 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 print("no json")
                 return
             }
-            let gridArray = json as! NSArray
+            let gridArray = json as! Array<NSDictionary>
             self.gridData.append(gridArray)
             OperationQueue.main.addOperation {
                 self.configTableView.reloadData()
             }
         }
+    }
+    
+    func saveGrids() {
+        let savedGrids = gridData[0]
+        let plistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
+        let defaultsDict = UserDefaults.standard
+        defaultsDict.set(plistData, forKey: "savedGrids")
     }
     
 }
