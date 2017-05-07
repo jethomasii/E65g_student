@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2702A5221EBE2EB6006E47F0 /* GridEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2702A5211EBE2EB6006E47F0 /* GridEditorViewController.swift */; };
+		2741D89E1EBF6BA40004B128 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741D89D1EBF6BA40004B128 /* Fetcher.swift */; };
 		2758876F1EBB0AC400F1E2CD /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758876A1EBB0AC400F1E2CD /* Engine.swift */; };
 		275887701EBB0AC400F1E2CD /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758876B1EBB0AC400F1E2CD /* Grid.swift */; };
 		275887711EBB0AC400F1E2CD /* InstrumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758876C1EBB0AC400F1E2CD /* InstrumentationViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		2702A5211EBE2EB6006E47F0 /* GridEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridEditorViewController.swift; sourceTree = "<group>"; };
+		2741D89D1EBF6BA40004B128 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		2758876A1EBB0AC400F1E2CD /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		2758876B1EBB0AC400F1E2CD /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		2758876C1EBB0AC400F1E2CD /* InstrumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				2758876B1EBB0AC400F1E2CD /* Grid.swift */,
 				275887761EBB0C5D00F1E2CD /* GridView.swift */,
 				2758876C1EBB0AC400F1E2CD /* InstrumentationViewController.swift */,
+				2741D89D1EBF6BA40004B128 /* Fetcher.swift */,
 				2702A5211EBE2EB6006E47F0 /* GridEditorViewController.swift */,
 				2758876D1EBB0AC400F1E2CD /* SimulationViewController.swift */,
 				2758876E1EBB0AC400F1E2CD /* StatisticsViewController.swift */,
@@ -162,6 +165,7 @@
 				2702A5221EBE2EB6006E47F0 /* GridEditorViewController.swift in Sources */,
 				275887721EBB0AC400F1E2CD /* SimulationViewController.swift in Sources */,
 				275887701EBB0AC400F1E2CD /* Grid.swift in Sources */,
+				2741D89E1EBF6BA40004B128 /* Fetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

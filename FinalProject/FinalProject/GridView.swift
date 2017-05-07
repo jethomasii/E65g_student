@@ -97,8 +97,9 @@ public protocol GridViewDataSource {
     func drawLine(start:CGPoint, end:CGPoint) {
         let path = UIBezierPath()
         // Change the line width based on the size of the grid (reduces width as grows)
-        gridWidth.multiply(by: CGFloat(10.0/Double(size)))
-        path.lineWidth = gridWidth
+        var lineWidth = gridWidth
+        lineWidth.multiply(by: CGFloat(5.0/Double(size)))
+        path.lineWidth = lineWidth
         path.move(to: start)
         path.addLine(to: end)
         gridColor.setStroke()

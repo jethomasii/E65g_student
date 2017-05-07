@@ -8,82 +8,8 @@
 
 import UIKit
 
-var sectionHeaders = [
-    "One", "Two", "Three", "Four", "Five", "Six"
-]
-
-var data = [
-    [
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date"
-    ],
-    [
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana"
-    ],
-    [
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry"
-    ],
-    [
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Apple",
-        "Banana",
-        "Cherry",
-        "Date",
-        "Kiwi",
-        "Blueberry"
-    ]
-]
-
+// URL of remote grids
+let remoteGridsURL = "https://dl.dropboxusercontent.com/u/7544475/S65g.json"
 
 class InstrumentationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -94,11 +20,27 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var colText: UITextField!
     @IBOutlet weak var rowText: UITextField!
     var engine: StandardEngine!
+    var sectionHeaders = [String]()
+    var gridData = [[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.sharedEngine
+        
+        // Check for saved grids
+        let defaultsDict = UserDefaults.standard
+        let savedGrids = defaultsDict.object(forKey: "savedGrids")
+        if (savedGrids != nil) {
+            sectionHeaders.append("Saved")
+            //self.gridData.append(savedGrids)
+        }
+        
+        sectionHeaders.append("Downloaded")
+        
+        // Download grid information for class
+        self.getGrids()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -124,18 +66,18 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     //MARK: TableView DataSource and Delegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return gridData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return gridData[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "gridConf"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let label = cell.contentView.subviews.first as! UILabel
-        label.text = data[indexPath.section][indexPath.item]
+        label.text = gridData[indexPath.section][indexPath.item]
         return cell
     }
     
@@ -166,9 +108,31 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         }
         else {
             engine.refreshRate = 0.0
-
         }
-
+    }
+    
+    //MARK: Miscellaneous
+    
+    func getGrids() {
+        let fetcher = Fetcher()
+        fetcher.fetchJSON(url: URL(string:remoteGridsURL)!) { (json: Any?, message: String?) in
+            guard message == nil else {
+                print (message ?? "nil")
+                return
+            }
+            guard let json = json else {
+                print("no json")
+                return
+            }
+            print(json)
+            let resultString = (json as AnyObject).description
+            let jsonArray = json as! NSArray
+            let jsonDictionary = jsonArray[0] as! NSDictionary
+            let jsonTitle = jsonDictionary["title"] as! String
+            let jsonContents = jsonDictionary["contents"] as! [[Int]]
+            print (jsonTitle, jsonContents)
+            
+        }
     }
     
 }

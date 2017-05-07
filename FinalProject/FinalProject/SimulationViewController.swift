@@ -65,4 +65,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         self.mainGrid.setNeedsDisplay()
     }
     
+    @IBAction func resetGrid(_ sender: Any) {
+        self.engine.resetGrid()
+    }
+    
 }

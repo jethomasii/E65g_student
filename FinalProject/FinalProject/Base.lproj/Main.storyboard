@@ -170,6 +170,9 @@
                                         <rect key="frame" x="134.5" y="39.5" width="51" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetGrid:" destination="HRk-71-Arg" eventType="touchUpInside" id="fr0-JC-UB5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RK6-ox-EgL">
                                         <rect key="frame" x="244" y="39.5" width="44" height="36"/>

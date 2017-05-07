@@ -79,24 +79,29 @@ class StandardEngine: EngineProtocol {
         cumulativeStats[CellState.died]! = currentStats[CellState.died]!
         cumulativeStats[CellState.empty]! = currentStats[CellState.empty]!
         
-        // Notifications go here
-        
-        let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "EngineUpdate")
-        let n = Notification(name: name,
-                             object: nil,
-                             userInfo: ["engine" : self])
-        nc.post(n)
+        self.notifyGridUpdate()
         
         return self.grid
     }
     
+    // Clear the grid, keep current row size.
+    func resetGrid() {
+        let newGrid = Grid(rows, cols)
+        self.grid = newGrid
+        self.resetStats()
+        self.notifyGridUpdate()
+    }
+    
+    // Reset statistics
     func resetStats() {
         cumulativeStats[CellState.born] = 0
         cumulativeStats[CellState.alive] = 0
         cumulativeStats[CellState.died] = 0
         cumulativeStats[CellState.empty] = 0
-        
+        self.notifyGridUpdate()
+    }
+    
+    private func notifyGridUpdate() {
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")
         let n = Notification(name: name,
