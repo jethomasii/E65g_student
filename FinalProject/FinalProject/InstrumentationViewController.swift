@@ -34,11 +34,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         
         // Add Listener
         let nc = NotificationCenter.default
-        
-        // Notification names
         let engineUpdate = Notification.Name(rawValue: "SavedGridsUpdate")
-        
-        // Observers
         nc.addObserver(
             forName: engineUpdate,
             object: nil,
@@ -46,7 +42,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                 self.updateSavedGrids()
         }
 
-        
         // Create section headers
         sectionHeaders.append("Saved")
         sectionHeaders.append("Downloaded")
