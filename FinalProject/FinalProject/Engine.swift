@@ -34,8 +34,13 @@ class StandardEngine: EngineProtocol {
     var refreshTimer: Timer?
     var delegate: EngineDelegate?
     static var sharedEngine = StandardEngine(rows:10,cols:10)
+    var cumulativeStats = [CellState: Int]()
     
     required init(rows: Int, cols: Int) {
+        cumulativeStats[CellState.born] = 0
+        cumulativeStats[CellState.alive] = 0
+        cumulativeStats[CellState.died] = 0
+        cumulativeStats[CellState.empty] = 0
         self.rows = rows
         self.cols = cols
         self.grid = Grid (rows, cols)
@@ -67,6 +72,13 @@ class StandardEngine: EngineProtocol {
         let newGrid = grid.next()
         self.grid = newGrid
         
+        // Update stats
+        let currentStats = grid.getCellStateDict()
+        cumulativeStats[CellState.born]! = currentStats[CellState.born]!
+        cumulativeStats[CellState.alive]! = currentStats[CellState.alive]!
+        cumulativeStats[CellState.died]! = currentStats[CellState.died]!
+        cumulativeStats[CellState.empty]! = currentStats[CellState.empty]!
+        
         // Notifications go here
         
         let nc = NotificationCenter.default
@@ -77,6 +89,20 @@ class StandardEngine: EngineProtocol {
         nc.post(n)
         
         return self.grid
+    }
+    
+    func resetStats() {
+        cumulativeStats[CellState.born] = 0
+        cumulativeStats[CellState.alive] = 0
+        cumulativeStats[CellState.died] = 0
+        cumulativeStats[CellState.empty] = 0
+        
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "EngineUpdate")
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["engine" : self])
+        nc.post(n)
     }
     
 }

@@ -160,4 +160,32 @@ public extension Grid {
     }
 }
 
+// Function for retrieving number of cell states
+public extension GridProtocol {
+    public func getCellStateDict() -> [CellState: Int] {
+        var stateDictionary = [CellState: Int]()
+
+        stateDictionary[CellState.empty] = 0
+        stateDictionary[CellState.alive] = 0
+        stateDictionary[CellState.born] = 0
+        stateDictionary[CellState.died] = 0
+        
+        lazyPositions(self.size).forEach {
+            let state = self[$0.row,$0.col]
+            switch state {
+            case .empty:
+                stateDictionary[CellState.empty]! += 1
+            case .alive:
+                stateDictionary[CellState.alive]! += 1
+            case .born:
+                stateDictionary[CellState.born]! += 1
+            case .died:
+                stateDictionary[CellState.died]! += 1
+            }
+        }
+        
+        return stateDictionary
+    }
+}
+
 
