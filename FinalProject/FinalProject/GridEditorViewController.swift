@@ -22,6 +22,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        titleTextField.layer.borderWidth = 2.0
+        
         // Pull GridData from dictonary and prep for loading grid
         let gridArray = gridDictionary.object(forKey: "contents") as? NSArray
         var gridMap = [GridPosition]()
