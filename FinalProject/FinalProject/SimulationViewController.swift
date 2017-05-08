@@ -116,14 +116,16 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         }))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             
+            // Actually save the grid to defaults, not passed to InstrumentationViewController as it may not be listening
             let runSerialQueue = DispatchQueue(label: "savedgridsupdate")
             runSerialQueue.sync {
                 // Save the grid
                 
                 let textField = alert?.textFields![0]
                 let title = textField?.text
-                let currentGridDictionary = ["title": title as Any, "contents": gridMap] as [String : Any]
-                savedGrids.append(currentGridDictionary as NSDictionary)
+                let currentGridDictionary = ["title": title as Any, "contents": gridMap] as NSDictionary
+                savedGrids = [currentGridDictionary] + savedGrids
+                //savedGrids.append(currentGridDictionary as NSDictionary)
                 let newPlistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
                 defaultsDict.set(newPlistData, forKey: "savedGrids")
                 

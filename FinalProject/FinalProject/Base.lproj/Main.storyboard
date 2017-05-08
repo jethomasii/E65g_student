@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfv-Jn-d2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="687.5"/>
+            <point key="canvasLocation" x="964" y="723"/>
         </scene>
         <!--Simulation-->
         <scene sceneID="wi0-0u-fSS">
@@ -133,57 +133,63 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u08-lt-FBD" userLabel="GridView" customClass="GridView" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="32" y="78" width="256" height="256"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="u08-lt-FBD" secondAttribute="height" multiplier="1:1" id="bLZ-jf-UZL"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="livingColor">
-                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="bornColor">
-                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                <color key="value" red="0.0" green="0.0" blue="1" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.32549019607843138" green="0.70196078431372544" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="diedColor">
-                                                <color key="value" red="0.0" green="0.0" blue="1" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.32549019607843138" green="0.70196078431372544" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gridWidth">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mb-6u-Y1X">
-                                        <rect key="frame" x="32" y="39.5" width="42" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Next"/>
+                                        <rect key="frame" x="32" y="39.5" width="47" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="stepDidTouch:" destination="HRk-71-Arg" eventType="touchUpInside" id="dhE-lq-UA4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rme-lP-VM1">
-                                        <rect key="frame" x="134.5" y="39.5" width="51" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Reset"/>
+                                        <rect key="frame" x="131" y="39.5" width="58" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="resetGrid:" destination="HRk-71-Arg" eventType="touchUpInside" id="fr0-JC-UB5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RK6-ox-EgL">
-                                        <rect key="frame" x="244" y="39.5" width="44" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Save"/>
+                                        <rect key="frame" x="239" y="39.5" width="49" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="saveGrid:" destination="HRk-71-Arg" eventType="touchUpInside" id="8ta-UF-4sF"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.2333512931" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="u08-lt-FBD" firstAttribute="top" secondItem="9mb-6u-Y1X" secondAttribute="bottom" constant="2.5" id="0tP-Gw-v2E"/>
                                     <constraint firstItem="Rme-lP-VM1" firstAttribute="centerY" secondItem="u08-lt-FBD" secondAttribute="centerY" id="2Ej-Gd-ymv"/>
@@ -266,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6P-cu-8YS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="-816"/>
+            <point key="canvasLocation" x="964" y="-999"/>
         </scene>
         <!--Item-->
         <scene sceneID="oNK-Hm-ra9">
@@ -569,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vr8-KD-PeW" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004.375" y="-125"/>
+            <point key="canvasLocation" x="1903" y="-101"/>
         </scene>
         <!--Grid Editor-->
         <scene sceneID="11N-x0-0tH">
@@ -588,28 +594,28 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrK-w8-wNR" userLabel="GridView" customClass="GridView" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="32" y="77.5" width="256" height="256"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jrK-w8-wNR" secondAttribute="height" multiplier="1:1" id="fPh-ao-eX3"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="livingColor">
-                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="bornColor">
-                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                <color key="value" red="0.0" green="0.0" blue="1" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.32549019607843138" green="0.70196078431372544" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="diedColor">
-                                                <color key="value" red="0.0" green="0.0" blue="1" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="0.32549019607843138" green="0.70196078431372544" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="gridColor">
                                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gridWidth">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -626,7 +632,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="0.20429157239819004" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="jrK-w8-wNR" firstAttribute="height" secondItem="UJJ-ts-Mcd" secondAttribute="height" multiplier="0.8" priority="750" id="1Fu-RD-O9G"/>
                                     <constraint firstItem="0PE-MD-c9t" firstAttribute="top" secondItem="Kg9-5Q-dEb" secondAttribute="bottom" constant="8" id="BKt-9b-Xjg"/>
@@ -691,11 +697,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Grid Editor" id="k0K-u4-R2G">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="umD-HF-JLw">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButtonDidPress:" destination="W1Y-aN-qFa" id="NvX-5d-zY3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="prY-7d-KBC">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="save:" destination="W1Y-aN-qFa" id="GXu-oj-592"/>
                             </connections>
@@ -709,7 +717,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4J-KS-WQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="-125"/>
+            <point key="canvasLocation" x="2790" y="-101"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DeJ-fl-drD">
@@ -720,6 +728,8 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="HRk-71-Arg" kind="relationship" relationship="viewControllers" id="LzF-QX-5Rf"/>
@@ -729,7 +739,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbx-I9-Qyt" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-36" y="-101"/>
         </scene>
     </scenes>
     <resources>
