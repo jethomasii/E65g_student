@@ -113,6 +113,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
                         let savedIndex = self.sectionHeaders.index(of: "Saved")
                         self.gridData[savedIndex!] = [newGridDictionary] + self.gridData[savedIndex!]
                     }
+                    self.rowStepper.value = Double(vc.size)
+                    self.anyStepperDidTouch(self.rowStepper)
                     self.saveGrids()
                     self.configTableView.reloadData()
                 }

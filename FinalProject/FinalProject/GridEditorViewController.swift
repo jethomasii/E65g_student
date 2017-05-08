@@ -16,8 +16,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
     var saveClosure: ((NSDictionary) -> Void)?
     var engine: StandardEngine!
     var gridDictionary: NSDictionary!
-    var sectionHeader: String!
-    var savedIndex: Int!
+    var size: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
         // Pull GridData from dictonary and prep for loading grid
         let gridArray = gridDictionary.object(forKey: "contents") as? NSArray
         var gridMap = [GridPosition]()
-        var size = 10
+        size = 10
 
         // copy items into gridMap and find the size
         if (gridArray != nil){
@@ -92,6 +91,15 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
             _ = self.navigationController?.popViewController(animated: true)
         }
         
+        // Notify the simulation view and pass grid
+        let nc = NotificationCenter.default
+        let name = Notification.Name(rawValue: "GridEditorSave")
+        let n = Notification(name: name,
+                             object: nil,
+                             userInfo: ["gridEditor" : self,
+                                        "grid": self.engine.grid])
+        nc.post(n)
+        
         /* old method for reference
         let runSerialQueue = DispatchQueue(label: "savedgridsupdate")
         runSerialQueue.sync {
@@ -127,5 +135,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
 
         }
         */
+    }
+    @IBAction func cancelButtonDidPress(_ sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

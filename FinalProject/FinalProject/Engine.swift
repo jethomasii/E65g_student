@@ -92,6 +92,13 @@ class StandardEngine: EngineProtocol {
         return self.grid
     }
     
+    // Function to enable/disable cells, used to load grids
+    func mapPositions(positions: [GridPosition]) {
+        for pos in positions {
+            self.grid[pos.row,pos.col] = CellState.alive
+        }
+    }
+    
     // Clear the grid, keep current row size.
     func resetGrid() {
         let newGrid = Grid(rows, cols)
@@ -109,6 +116,7 @@ class StandardEngine: EngineProtocol {
         self.notifyGridUpdate()
     }
     
+    // private notify function to reduce code
     private func notifyGridUpdate() {
         let nc = NotificationCenter.default
         let name = Notification.Name(rawValue: "EngineUpdate")

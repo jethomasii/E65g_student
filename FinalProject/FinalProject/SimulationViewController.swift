@@ -33,6 +33,7 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         
         // Notification names
         let engineUpdate = Notification.Name(rawValue: "EngineUpdate")
+        let gridEditorUpdate = Notification.Name(rawValue: "GridEditorSave")
         
         // Observers
         nc.addObserver(
@@ -40,6 +41,13 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
             object: nil,
             queue: nil) { (n) in
                 self.mainGrid.setNeedsDisplay()
+        }
+        nc.addObserver(forName: gridEditorUpdate,
+                       object: nil,
+                       queue: nil) { (n) in
+                if let updateGrid = n.userInfo?["grid"] {
+                      self.engineDidUpdate(withGrid: updateGrid as! GridProtocol)
+                }
         }
 
     }
@@ -61,6 +69,20 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
     
     func engineDidUpdate(withGrid: GridProtocol) {
         self.mainGrid.size = withGrid.size.rows
+        let gridArray = withGrid.getCurrentGridData()
+        var gridMap = [GridPosition]()
+        
+        // copy items into gridMap and find the size
+        if ((gridArray.count) > 0) {
+            for entry in gridArray {
+                let testCell = entry as NSArray
+                let testPos = GridPosition(row: testCell[0] as! Int, col: testCell[1] as! Int)
+                gridMap.append(testPos)
+            }
+            
+        }
+        self.engine.grid = Grid.init(self.mainGrid.size, self.mainGrid.size)
+        self.engine.mapPositions(positions: gridMap)
         self.engine.resetStats()
         self.mainGrid.setNeedsDisplay()
     }

@@ -690,6 +690,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Grid Editor" id="k0K-u4-R2G">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="umD-HF-JLw">
+                            <connections>
+                                <action selector="cancelButtonDidPress:" destination="W1Y-aN-qFa" id="NvX-5d-zY3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="prY-7d-KBC">
                             <connections>
                                 <action selector="save:" destination="W1Y-aN-qFa" id="GXu-oj-592"/>
