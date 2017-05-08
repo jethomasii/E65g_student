@@ -20,7 +20,7 @@
                         <viewControllerLayoutGuide type="bottom" id="A05-VR-R3Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ngP-7k-cu5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Pn-7F-2td" userLabel="Shader">
@@ -96,7 +96,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5Pn-7F-2td" secondAttribute="trailing" id="az9-jm-GRV"/>
                             <constraint firstItem="5Pn-7F-2td" firstAttribute="top" secondItem="JVe-O6-Uww" secondAttribute="bottom" id="fAn-pk-rav"/>
@@ -125,7 +125,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GJj-CP-yqr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XZv-ch-8V2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-MG-09M" userLabel="Shader">
@@ -257,7 +257,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GGd-MG-09M" firstAttribute="leading" secondItem="XZv-ch-8V2" secondAttribute="leading" id="Jsa-hG-WPo"/>
                             <constraint firstAttribute="trailing" secondItem="GGd-MG-09M" secondAttribute="trailing" id="Szd-mN-sme"/>
@@ -279,10 +279,11 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="xwP-GB-YGf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7Dh-38-kpn"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Phj-N5-OmI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Phj-N5-OmI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="kcp-T5-Fcv" kind="relationship" relationship="rootViewController" id="4vu-mk-BkQ"/>
@@ -301,7 +302,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Aoj-GV-8tW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="823-rM-3A2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-Xj-1N8" userLabel="Shader">
@@ -454,7 +455,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="205.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rr-I9-Fuz">
-                                                <rect key="frame" x="290" y="0.0" width="30" height="24"/>
+                                                <rect key="frame" x="290" y="0.0" width="30" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -464,13 +465,14 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-NN-W5l">
-                                                <rect key="frame" x="0.0" y="24" width="320" height="181.5"/>
+                                                <rect key="frame" x="0.0" y="36" width="320" height="169.5"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-Ex-xeG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="181.5"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-Ex-xeG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="gridConf" textLabel="Ebn-Jb-MPG" style="IBUITableViewCellStyleDefault" id="TQP-TE-jmI">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="gridConf" textLabel="Ebn-Jb-MPG" style="IBUITableViewCellStyleDefault" id="TQP-TE-jmI">
                                                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TQP-TE-jmI" id="KT9-yk-0uA">
@@ -480,12 +482,15 @@
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ebn-Jb-MPG">
                                                                             <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" red="0.97254901959999995" green="0.96470588239999999" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </tableViewCellContentView>
+                                                                <color key="backgroundColor" red="0.97254901959999995" green="0.96470588239999999" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
                                                                     <segue destination="W1Y-aN-qFa" kind="show" id="IpI-Wj-uav"/>
                                                                 </connections>
@@ -499,13 +504,12 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOM-GM-CWl">
-                                                <rect key="frame" x="110" y="0.0" width="100.5" height="24"/>
+                                                <rect key="frame" x="110" y="0.0" width="100.5" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9rr-I9-Fuz" secondAttribute="trailing" id="0He-g5-mOK"/>
                                             <constraint firstItem="BOM-GM-CWl" firstAttribute="centerX" secondItem="QzU-hl-btM" secondAttribute="centerX" id="AgX-wi-M64"/>
@@ -519,7 +523,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Nni-Sw-xi2" firstAttribute="width" secondItem="F3e-Xj-1N8" secondAttribute="width" id="5j6-mo-WXD"/>
                                     <constraint firstItem="Nni-Sw-xi2" firstAttribute="height" secondItem="F3e-Xj-1N8" secondAttribute="height" id="CG2-Bu-Uyp"/>
@@ -564,7 +568,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Aoj-GV-8tW" firstAttribute="top" secondItem="F3e-Xj-1N8" secondAttribute="bottom" id="9mU-eV-wK2"/>
                             <constraint firstItem="F3e-Xj-1N8" firstAttribute="top" secondItem="RSi-NJ-CHJ" secondAttribute="bottom" id="GVv-nj-2Ei"/>
@@ -597,7 +601,7 @@
                         <viewControllerLayoutGuide type="bottom" id="N6T-CE-QES"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KHR-MY-ajj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJJ-ts-Mcd" userLabel="Shader">
@@ -699,7 +703,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UJJ-ts-Mcd" firstAttribute="centerX" secondItem="KHR-MY-ajj" secondAttribute="centerX" id="2Nh-tL-xxk"/>
                             <constraint firstItem="UJJ-ts-Mcd" firstAttribute="width" secondItem="KHR-MY-ajj" secondAttribute="width" id="LXt-s3-NBR"/>
@@ -709,13 +713,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Grid Editor" id="k0K-u4-R2G">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="umD-HF-JLw">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="cancelButtonDidPress:" destination="W1Y-aN-qFa" id="NvX-5d-zY3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="prY-7d-KBC">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="save:" destination="W1Y-aN-qFa" id="GXu-oj-592"/>
                             </connections>
@@ -736,11 +740,12 @@
             <objects>
                 <tabBarController id="spS-CV-gVL" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="N3X-Hb-NUr">
+                    <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="N3X-Hb-NUr">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
