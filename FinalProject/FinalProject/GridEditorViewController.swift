@@ -27,7 +27,8 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
         // Pull GridData from dictonary and prep for loading grid
         let gridArray = gridDictionary.object(forKey: "contents") as? NSArray
         var gridMap = [GridPosition]()
-        size = 10
+        // should never be called but just in case
+        if (size == nil) { size = 10 }
 
         // copy items into gridMap and find the size
         if (gridArray != nil){

@@ -103,6 +103,7 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             if let vc = segue.destination as? GridEditorViewController {
                 // add values
                 vc.gridDictionary = currentGridDictionary
+                vc.size = Int(rowStepper.value)
                 // Update dictionary
                 vc.saveClosure = { newGridDictionary in
                     
