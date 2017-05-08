@@ -27,6 +27,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Use shared instance of engine
         engine = StandardEngine.sharedEngine
         
         // Add Listener
