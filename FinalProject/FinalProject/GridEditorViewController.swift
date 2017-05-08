@@ -13,7 +13,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var editGrid: GridView!
-    var saveClosure: ((String) -> Void)?
+    var saveClosure: ((NSDictionary) -> Void)?
     var engine: StandardEngine!
     var gridDictionary: NSDictionary!
     var sectionHeader: String!
@@ -82,8 +82,20 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
     
     @IBAction func save(_ sender: UIButton) {
         
+        let gridMap = engine.grid.getCurrentGridData()
+        
+        self.gridDictionary = ["title": titleTextField.text as Any, "contents": gridMap] as NSDictionary!
+        
+        if let newGridDictionary = self.gridDictionary,
+            let saveClosure = saveClosure {
+            saveClosure(newGridDictionary)
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        
+        /* old method for reference
         let runSerialQueue = DispatchQueue(label: "savedgridsupdate")
         runSerialQueue.sync {
+
             // Gather savedGrids from preferences
             let defaultsDict = UserDefaults.standard
             var savedGrids = Array<NSDictionary>()
@@ -93,8 +105,7 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
             
             // Pull the gridMap, extended GridProtocol for this
             let gridMap = engine.grid.getCurrentGridData()
-            
-            
+
             // Save the grid
             
             let currentGridDictionary = ["title": titleTextField.text as Any, "contents": gridMap] as [String : Any]
@@ -105,23 +116,16 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
             }
             let newPlistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
             defaultsDict.set(newPlistData, forKey: "savedGrids")
-            
-            if let newValue = titleTextField.text,
-                let saveClosure = saveClosure {
-                 saveClosure(newValue)
-                 self.navigationController?.popViewController(animated: true)
-            }
-            
-            
-             // Notify that there was a grid saved
-             let nc = NotificationCenter.default
-             let name = Notification.Name(rawValue: "SavedGridsUpdate")
-             let n = Notification(name: name,
-             object: nil,
-             userInfo: ["simulationView" : self])
-             nc.post(n)
-            
+
+            // Notify that there was a grid saved
+            let nc = NotificationCenter.default
+            let name = Notification.Name(rawValue: "SavedGridsUpdate")
+            let n = Notification(name: name,
+            object: nil,
+            userInfo: ["simulationView" : self])
+            nc.post(n)
+
         }
-        
+        */
     }
 }

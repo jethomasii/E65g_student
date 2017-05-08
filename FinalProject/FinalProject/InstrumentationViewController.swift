@@ -103,9 +103,17 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             if let vc = segue.destination as? GridEditorViewController {
                 // add values
                 vc.gridDictionary = currentGridDictionary
-                vc.sectionHeader = sectionHeaders[currentIndexPath.section]
-                vc.savedIndex = currentIndexPath.row
-                vc.saveClosure = { newValue in
+                // Update dictionary
+                vc.saveClosure = { newGridDictionary in
+                    
+                    // Do not update downloaded items add a new one instead
+                    if (self.sectionHeaders[currentIndexPath.section] == "Saved") {
+                        self.gridData[currentIndexPath.section][currentIndexPath.row] = newGridDictionary
+                    } else {
+                        let savedIndex = self.sectionHeaders.index(of: "Saved")
+                        self.gridData[savedIndex!] = [newGridDictionary] + self.gridData[savedIndex!]
+                    }
+                    self.saveGrids()
                     self.configTableView.reloadData()
                 }
             }
@@ -160,8 +168,9 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     @IBAction func addNewConfiguration(_ sender: Any) {
+        let savedIndex = self.sectionHeaders.index(of: "Saved")
         let currentGridDictionary = ["title": "new", "contents": nil]
-        gridData[0] = [currentGridDictionary as NSDictionary] + gridData[0]
+        gridData[savedIndex!] = [currentGridDictionary as NSDictionary] + gridData[savedIndex!]
         self.saveGrids()
         self.configTableView.reloadData()
     }
@@ -188,7 +197,8 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func saveGrids() {
-        let savedGrids = gridData[0]
+        let savedIndex = self.sectionHeaders.index(of: "Saved")
+        let savedGrids = gridData[savedIndex!]
         let plistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
         let defaultsDict = UserDefaults.standard
         defaultsDict.set(plistData, forKey: "savedGrids")
