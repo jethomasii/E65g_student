@@ -85,11 +85,13 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // identify and fill the text in the cell
         let identifier = "gridConf"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let label = cell.contentView.subviews.first as! UILabel
         let currentGridDictionary = gridData[indexPath.section][indexPath.item] 
         label.text = currentGridDictionary["title"] as? String
+
         return cell
     }
     
