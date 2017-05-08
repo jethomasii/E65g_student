@@ -46,6 +46,14 @@ class StandardEngine: EngineProtocol {
         self.grid = Grid (rows, cols)
     }
     
+    // Createa  grid Object and togle cell states to alive
+    convenience init(size: Int, withMap: [GridPosition]) {
+        self.init(rows: size, cols: size)
+        for pos in withMap {
+            self.grid[pos.row,pos.col] = CellState.alive
+        }
+    }
+    
     var refreshRate: Double = 0.0 {
         didSet {
             if refreshRate > 0.0 {

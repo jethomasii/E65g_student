@@ -29,9 +29,6 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
         // Do any additional setup after loading the view, typically from a nib.
         engine = StandardEngine.sharedEngine
         
-        // get saved grids
-        self.updateSavedGrids()
-        
         // Add Listener
         let nc = NotificationCenter.default
         let engineUpdate = Notification.Name(rawValue: "SavedGridsUpdate")
@@ -40,11 +37,15 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             object: nil,
             queue: nil) { (n) in
                 self.updateSavedGrids()
+                self.configTableView.reloadData()
         }
 
         // Create section headers
         sectionHeaders.append("Saved")
         sectionHeaders.append("Downloaded")
+        
+        // get saved grids
+        self.updateSavedGrids()
         
         // Download grid information for class
         self.getGrids()
@@ -102,6 +103,11 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
             if let vc = segue.destination as? GridEditorViewController {
                 // add values
                 vc.gridDictionary = currentGridDictionary
+                vc.sectionHeader = sectionHeaders[currentIndexPath.section]
+                vc.savedIndex = currentIndexPath.row
+                vc.saveClosure = { newValue in
+                    self.configTableView.reloadData()
+                }
             }
         }
     }
@@ -190,13 +196,13 @@ class InstrumentationViewController: UIViewController, UITableViewDelegate, UITa
     
     func updateSavedGrids() {
         // Check for saved grids
+        print("Updating saved Grids!")
         let defaultsDict = UserDefaults.standard
         var savedGrids = Array<NSDictionary>()
-        let plistData = defaultsDict.object(forKey: "savedGrids") as! Data
-        
-        if (!plistData.isEmpty) {
-            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData) as! [NSDictionary]
+        if let plistData = defaultsDict.object(forKey: "savedGrids") {
+            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData as! Data) as! [NSDictionary]
         }
+
         
         if (gridData.count > 0) {
             gridData[0] = savedGrids

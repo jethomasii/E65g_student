@@ -10,17 +10,43 @@ import UIKit
 
 class GridEditorViewController: UIViewController, GridViewDataSource, EngineDelegate {
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var editGrid: GridView!
+    var saveClosure: ((String) -> Void)?
     var engine: StandardEngine!
     var gridDictionary: NSDictionary!
+    var sectionHeader: String!
+    var savedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Pull GridData from dictonary and prep for loading grid
+        let gridArray = gridDictionary.object(forKey: "contents") as? NSArray
+        var gridMap = [GridPosition]()
+        var size = 10
+
+        // copy items into gridMap and find the size
+        if (gridArray != nil){
+            if ((gridArray?.count)! > 0) {
+                for entry in gridArray! {
+                    let testCell = entry as! NSArray
+                    let testPos = GridPosition(row: testCell[0] as! Int, col: testCell[1] as! Int)
+                    gridMap.append(testPos)
+                    if (testPos.row > size || testPos.col > size) {
+                        size = testPos.row > testPos.col ? testPos.row : testPos.col
+                    }
+                }
+                
+            }
+        }
+        // Adjust size as multiple of 10
+        if (size % 10 != 0) { size = size + (10 - size % 10) }
+        
         // Create non-singleton engine
-        engine = StandardEngine(rows: 10, cols: 10)
+        engine = StandardEngine.init(size: size, withMap: gridMap)
         editGrid.size = engine.grid.size.rows
         engine.delegate = self
         
@@ -54,4 +80,48 @@ class GridEditorViewController: UIViewController, GridViewDataSource, EngineDele
         self.editGrid.setNeedsDisplay()
     }
     
+    @IBAction func save(_ sender: UIButton) {
+        
+        let runSerialQueue = DispatchQueue(label: "savedgridsupdate")
+        runSerialQueue.sync {
+            // Gather savedGrids from preferences
+            let defaultsDict = UserDefaults.standard
+            var savedGrids = Array<NSDictionary>()
+            if let plistData = defaultsDict.object(forKey: "savedGrids") {
+                savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData as! Data) as! [NSDictionary]
+            }
+            
+            // Pull the gridMap, extended GridProtocol for this
+            let gridMap = engine.grid.getCurrentGridData()
+            
+            
+            // Save the grid
+            
+            let currentGridDictionary = ["title": titleTextField.text as Any, "contents": gridMap] as [String : Any]
+            if (self.sectionHeader == "Saved") {
+                savedGrids[self.savedIndex] = (currentGridDictionary as NSDictionary)
+            } else {
+                savedGrids.append(currentGridDictionary as NSDictionary)
+            }
+            let newPlistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
+            defaultsDict.set(newPlistData, forKey: "savedGrids")
+            
+            if let newValue = titleTextField.text,
+                let saveClosure = saveClosure {
+                 saveClosure(newValue)
+                 self.navigationController?.popViewController(animated: true)
+            }
+            
+            
+             // Notify that there was a grid saved
+             let nc = NotificationCenter.default
+             let name = Notification.Name(rawValue: "SavedGridsUpdate")
+             let n = Notification(name: name,
+             object: nil,
+             userInfo: ["simulationView" : self])
+             nc.post(n)
+            
+        }
+        
+    }
 }

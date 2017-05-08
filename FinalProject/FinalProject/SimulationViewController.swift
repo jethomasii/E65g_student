@@ -74,11 +74,8 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
         // Gather savedGrids from preferences
         let defaultsDict = UserDefaults.standard
         var savedGrids = Array<NSDictionary>()
-        let plistData = defaultsDict.object(forKey: "savedGrids") as! Data
-        
-        // if they exist load them
-        if (!plistData.isEmpty) {
-            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData) as! [NSDictionary]
+        if let plistData = defaultsDict.object(forKey: "savedGrids") {
+            savedGrids = NSKeyedUnarchiver.unarchiveObject(with: plistData as! Data) as! [NSDictionary]
         }
         
         // Pull the gridMap, extended GridProtocol for this
@@ -96,24 +93,31 @@ class SimulationViewController: UIViewController, GridViewDataSource, EngineDele
             return
         }))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0]
-            let title = textField?.text
-            let currentGridDictionary = ["title": title as Any, "contents": gridMap] as [String : Any]
-            savedGrids.append(currentGridDictionary as NSDictionary)
-            print("Saved Grids: %", savedGrids)
-            let newPlistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
-            defaultsDict.set(newPlistData, forKey: "savedGrids")
+            
+            let runSerialQueue = DispatchQueue(label: "savedgridsupdate")
+            runSerialQueue.sync {
+                // Save the grid
+                
+                let textField = alert?.textFields![0]
+                let title = textField?.text
+                let currentGridDictionary = ["title": title as Any, "contents": gridMap] as [String : Any]
+                savedGrids.append(currentGridDictionary as NSDictionary)
+                let newPlistData = NSKeyedArchiver.archivedData(withRootObject: savedGrids)
+                defaultsDict.set(newPlistData, forKey: "savedGrids")
+                
+                // Notify that there was a grid saved
+                let nc = NotificationCenter.default
+                let name = Notification.Name(rawValue: "SavedGridsUpdate")
+                let n = Notification(name: name,
+                                     object: nil,
+                                     userInfo: ["simulationView" : self])
+                nc.post(n)
+            }
         }))
         
         self.present(alert, animated: true, completion:nil)
         
-        // Notify that there was a grid saved
-        let nc = NotificationCenter.default
-        let name = Notification.Name(rawValue: "SavedGridsUpdate")
-        let n = Notification(name: name,
-                             object: nil,
-                             userInfo: ["simulationView" : self])
-        nc.post(n)
+        
     }
     
 }
