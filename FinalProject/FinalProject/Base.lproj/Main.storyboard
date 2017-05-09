@@ -478,7 +478,7 @@
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-Ex-xeG">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="gridConf" textLabel="Ebn-Jb-MPG" style="IBUITableViewCellStyleDefault" id="TQP-TE-jmI">
@@ -511,6 +511,7 @@
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOM-GM-CWl">
                                                 <rect key="frame" x="118" y="0.0" width="84.5" height="36"/>
